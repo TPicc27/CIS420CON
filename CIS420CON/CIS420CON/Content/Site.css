@@ -168,6 +168,13 @@ textarea {
 .nav-padding {
 	padding-top: 61px;
 }
+.navbar-brand {
+  height: auto;
+}
+.navbar-brand img {
+  width: auto;
+  height: 22px;
+}
 
 @media screen and (min-width: 768px) {
     .navbar-bootsnipp .navbar-brand {
@@ -232,7 +239,7 @@ textarea {
 /*login css*/
  body
 {
-    background: url(IMG/background.jpg);    
+    background: url(IMG/background.jpg);
     background-size: cover;
     padding: 0;
     margin: 0;
