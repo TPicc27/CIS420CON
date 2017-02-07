@@ -168,6 +168,13 @@ textarea {
 .nav-padding {
 	padding-top: 61px;
 }
+.navbar-brand {
+  height: auto;
+}
+.navbar-brand img {
+  width: auto;
+  height: 22px;
+}
 
 @media screen and (min-width: 768px) {
     .navbar-bootsnipp .navbar-brand {
