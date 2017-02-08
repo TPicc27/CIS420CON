@@ -512,13 +512,21 @@ form.login a:hover
 {
     transition: background-color 0.5s ease;
 }
-
+/*The Social Media Logos*/
 .logo-twitter
 {
     position: relative;
-    top: -10px;
-    color: red
+    right: -655px;
+    bottom: -475px;
+    color: red;
     
+}
+
+.logo-facebook
+{
+    position: relative;
+    right: -665px;
+    bottom: -475px;
 }
 
 }
