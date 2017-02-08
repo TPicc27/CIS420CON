@@ -560,4 +560,24 @@ label {
 .btn-register:focus {
   color: #fff;
   background-color: #2D3B55;
+/*The Social Media Logos*/
+.logo-twitter
+{
+position: relative;
+bottom: -12px;
+left: -115px;
+    
+}
+
+.logo-facebook
+{
+    position: relative;
+    bottom: -12px;
+}
+
+.form-control
+{
+    position: relative;
+    right: -37px;
+}
 }
