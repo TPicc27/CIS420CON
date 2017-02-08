@@ -527,4 +527,9 @@ left: -115px;
     bottom: -12px;
 }
 
+.form-control
+{
+    position: relative;
+    right: -37px;
+}
 }
