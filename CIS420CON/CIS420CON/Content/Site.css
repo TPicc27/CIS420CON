@@ -541,8 +541,7 @@ label {
   background-color: #2D3B55;
 }
 .forgot-password {
-  text-decoration: underline;
-  color: red;
+  text-decoration: underline !important;
   position: relative;
   top: -150px;
   right: -10px;
@@ -550,8 +549,8 @@ label {
 }
 .forgot-password:hover,
 .forgot-password:focus {
-  text-decoration: underline;
-  color: red;
+  text-decoration: underline !important;
+  color: red !important;
 }
 
 
