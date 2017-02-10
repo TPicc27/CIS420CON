@@ -241,13 +241,9 @@ textarea {
 /********************************/
 /*          Hero Headers        */
 /********************************/
-.paypal-center{
-    padding-left: 15px;
-    padding-right: 15px;
-    padding-top: 15px;
+.paypal-fit{
+   height: 72px;
 }
-
-
 
 /********************************/
 /*          Hero Headers        */
