@@ -1,52 +1,70 @@
 ﻿@{
     ViewBag.Title = "Login";
 }
+<!-- Login plugin-->
 <div class="container">
     <div class="row">
-        <div class="col-md-12">
-            <div class="pr-wrap">
-                <div class="pass-reset">
-                    <label>
-                        Enter the email you signed up with
-                    </label>
-                    <input type="email" placeholder="Email" />
-                    <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
-                </div>
-            </div>
+        <div class="col-md-12 col-md-offset-5">
             <div class="wrap">
-                <p class="form-title">
-                    Sign In
-                </p>
-                <form class="login">
-                    <input type="text" placeholder="Username" />
-                    <input type="password" placeholder="Password" />
-                    <input type="submit" value="Sign In" class="btn btn-danger btn-sm" />
-                    <div class="remember-forgot">
+                <div class="panel panel-login">
+                    <div class="panel-body">
                         <div class="row">
-                            <div class="col-md-6">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" />
-                                        Remember Me
-                                    </label>
-                                </div>
-                            </div>
-                            <div class="col-md-6 forgot-pass-content">
-                                <a href="http://hogs.cis420.net//Account/ForgotPassword" class="forgot-pass">Forgot Password</a>
-                                <!--Facebook Logo to CON Facebook account-->
-                                <a target="_blank" title="find us on Facebook" href="https://www.facebook.com/UniversityOfLouisvilleSchoolOfNursing/">
-                                    <img alt="follow me on facebook" src="//login.create.net/images/icons/user/facebook_40x40.png"
-                                         class="logo-facebook" border="0">
-                                </a>
-                                <!--Twitter Logo to CON Twitter handle-->
-                                <a target="_blank" title="follow me on twitter" href="https://twitter.com/uofl_son">
-                                    <img alt="follow me on twitter" src="//login.create.net/images/icons/user/twitter_40x40.png"
-                                         class="logo-twitter" border="0">
-                                </a>
+                            <div class="col-lg-12">
+                                <form id="login-form" action="#" method="post" role="form" style="display: block;">
+                                    <h2>LOGIN</h2>
+                                    <div class="form-group">
+                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                    </div>
+                                    <div class="col-xs-6 form-group pull-left checkbox">
+                                        <input id="checkbox1" type="checkbox" name="remember">
+                                        <label for="checkbox1">Remember Me</label>
+                                    </div>
+                                    <div class="col-xs-6 form-group pull-right">
+                                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                    </div>
+                                </form>
+                                <form id="register-form" action="#" method="post" role="form" style="display: none;">
+                                    <h2>REGISTER</h2>
+                                    <div class="form-group">
+                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-sm-6 col-sm-offset-3">
+                                                <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                </form>
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-6 tabs">
+                                <a href="#" class="active" id="login-form-link"><div class="login">LOGIN</div></a>
+                            </div>
+                            <div class="col-xs-6 tabs">
+                                <a href="#" id="register-form-link"><div class="register">REGISTER</div></a>
+                            </div>
+                            <div class="col-md-6 forgot-pass-content">
+                                <a href="http://hogs.cis420.net//Account/ForgotPassword" class="forgot-pass">Forgot Password</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -93,3 +111,4 @@
         </div>
     </div>
 </div>
+
