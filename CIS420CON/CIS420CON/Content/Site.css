@@ -518,7 +518,7 @@ label {
 .forgot-password {
   text-decoration: underline !important;
   position: relative;
-  bottom: -6px;
+  top: -150px;
   right: -10px;
   
 }
