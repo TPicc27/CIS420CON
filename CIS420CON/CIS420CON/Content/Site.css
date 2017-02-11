@@ -354,12 +354,20 @@ textarea {
 /********************************/
 /*          Login CSS           */
 /********************************/
-.wrap{
-    position: absolute;
-    z-index: 99;
-    background-position-x: center;
+.login-wrap{
+    position: relative;
     top: 200px;
 }
+
+.login-wrap-2{
+    position: absolute;
+    z-index: 99;
+    right: 0;
+    left: 0;
+    margin: auto;
+    width: 400px;
+}
+
 
 .panel {
   border-radius: 5px;
@@ -504,30 +512,24 @@ label {
   font-size: 14px;
   height: auto;
   font-weight: normal;
-  padding: 14px 0;
+  padding: 14px 16px;
   text-transform: uppercase;
   border: none;
   border-radius: 0px;
   box-shadow: none;
+  left: 10px
 }
 .btn-login:hover,
 .btn-login:focus {
   color: #fff;
   background-color: #2D3B55;
 }
-.forgot-password {
-  text-decoration: underline !important;
-  position: relative;
-  top: -150px;
-  right: -10px;
-  
-}
+
 .forgot-password:hover,
 .forgot-password:focus {
-  text-decoration: underline !important;
-  color: red !important;
+  text-decoration: underline;
+  color: #666;
 }
-
 
 .btn-register {
   background-color: #E8E9EC;
@@ -546,26 +548,10 @@ label {
 .btn-register:focus {
   color: #fff;
   background-color: #2D3B55;
-/*The Social Media Logos*/
-.logo-twitter
-{
-position: relative;
-bottom: -12px;
-left: -115px;
-    
-}
-
-.logo-facebook
-{
-    position: relative;
-    bottom: -12px;
 }
 
 .form-control
 {
     position: relative;
     right: -37px;
-}
-
-
 }
