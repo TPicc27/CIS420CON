@@ -29,5 +29,17 @@ namespace CIS420CON.Models
         {
             return new ApplicationDbContext();
         }
+
+        public DbSet<Student> Students { get; set; }
+
+        public DbSet<Enrollment> Enrollments { get; set; }
+
+        public DbSet<Program> Program { get; set; }
+
+        public DbSet<Course> Courses { get; set; }
+
+        public DbSet<Campus> Campus { get; set; }
+
+        public DbSet<Event> Events { get; set; }
     }
 }
