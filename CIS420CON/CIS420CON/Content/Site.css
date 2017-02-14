@@ -435,12 +435,14 @@ label {
 }
 .panel-login>.panel-heading .tabs{
   padding: 0;
+  width: 50%;
 }
 .panel-login h2{
   font-size: 20px;
   font-weight: 300;
   margin: 30px;
 }
+
 .panel-login>.panel-heading {
   color: #848c9d;
   background-color: #e8e9ec;
@@ -454,7 +456,7 @@ label {
   padding: 0px 15px;
 }
 .panel-login .form-group {
-  padding: 0 30px;
+  padding: 0 10px;
 }
 .panel-login>.panel-heading .login {
   padding: 20px 30px;
@@ -517,7 +519,7 @@ label {
   border: none;
   border-radius: 0px;
   box-shadow: none;
-  left: 10px
+  left: -25px;
 }
 .btn-login:hover,
 .btn-login:focus {
@@ -554,4 +556,7 @@ label {
 {
     position: relative;
     right: -37px;
+}
+.footer-center{
+    
 }
