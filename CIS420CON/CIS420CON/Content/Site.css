@@ -1,7 +1,6 @@
 ﻿body {
-    padding-top: 50px;
-    padding-bottom: 20px;
     margin-bottom: 0px;
+    padding-bottom: 0px;
     overflow-x: hidden;
 }
 
@@ -563,7 +562,7 @@ label {
 {
     position: relative;
     right: -550px;
-    top: -26px;
+    bottom: 100%;
     font-size: medium;
 }
 
@@ -571,7 +570,7 @@ label {
 {
     position: relative;
     right: -640px;
-    top: -20px;
+    top: 0px;
     font-weight: bold;
     font-size: large;
 }
@@ -579,8 +578,8 @@ label {
 .contact
 {
     position: relative;
-    right: -315px;
-    top: -45px;
+    right: -330px;
+    top: -50px;
     font-weight: bold;
     font-size: larger
 }
@@ -590,7 +589,7 @@ label {
     position: relative;
     right: -315px;
     top: -80px;
-    text-decoration: underline;
+
 }
 
 .phone
@@ -604,30 +603,30 @@ label {
 {
     position: relative;
     right: -295px;
-    top: -80px;
+    top: -50px;
 }
 
 .number
 {
     position: relative;
-    right: -317px;
-    top: -114px;
-    text-decoration: underline;
+    right: -315px;
+    top: -84px;
+  
 }
 
 .email 
 {
     position: relative;
-    right: -291px;
-    top: -114px;
+    right: -292px;
+    top: -58px;
     
 }
 
 .email-address
 {
     position: relative;
-    right: -292px;
-    top: -115px;
+    right: -293px;
+    top: -58px;
 }
 
 .email-address:hover,
