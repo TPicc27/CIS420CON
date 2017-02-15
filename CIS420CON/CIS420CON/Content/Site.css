@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    margin-bottom: 0px;
     overflow-x: hidden;
 }
 
@@ -557,6 +558,75 @@ label {
     position: relative;
     right: -37px;
 }
-.footer-center{
+
+.col-lg-3
+{
+    position: relative;
+    right: -550px;
+    top: -26px;
+    font-size: medium;
+}
+
+.title
+{
+    position: relative;
+    right: -640px;
+    top: -20px;
+    font-weight: bold;
+    font-size: large;
+}
+
+.contact
+{
+    position: relative;
+    right: -315px;
+    top: -45px;
+    font-weight: bold;
+    font-size: larger
+}
+
+.feedback
+{
+    position: relative;
+    right: -315px;
+    top: -80px;
+    text-decoration: underline;
+}
+
+.phone
+{
+    position: relative;
+    right: -295px;
+    top: -46px;
+}
+
+.phone-2
+{
+    position: relative;
+    right: -295px;
+    top: -80px;
+}
+
+.number
+{
+    position: relative;
+    right: -317px;
+    top: -114px;
+    text-decoration: underline;
+}
+
+.email 
+{
+    position: relative;
+    right: -291px;
+    top: -114px;
     
+}
+
+.email-address
+{
+    position: relative;
+    right: -292px;
+    top: -115px;
+    text-decoration: underline;
 }
