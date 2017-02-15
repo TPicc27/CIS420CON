@@ -628,5 +628,17 @@ label {
     position: relative;
     right: -292px;
     top: -115px;
+}
+
+.email-address:hover,
+.email-address:focus
+{
     text-decoration: underline;
+}
+
+.directions:hover,
+.directions:focus
+{
+    text-decoration: underline;
+
 }
