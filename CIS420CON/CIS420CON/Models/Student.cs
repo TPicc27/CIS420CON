@@ -29,6 +29,8 @@ namespace CIS420CON.Models
 
         public DateTime EnrollmentDate { get; set; }
 
+        public decimal GPA { get; set; }
+
         public string Standing { get; set; }
 
         public string HasGraduated { get; set; }

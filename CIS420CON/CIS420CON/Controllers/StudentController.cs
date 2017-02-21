@@ -46,7 +46,7 @@ namespace CIS420CON.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,LastName,FirstName,MiddleName,Address,City,State,ZipCode,Email,PhoneNumber,EnrollmentDate,Standing,HelpGraduated,CampusId")] Student student)
+        public ActionResult Create([Bind(Include = "Id,LastName,FirstName,MiddleName,Address,City,State,ZipCode,Email,PhoneNumber,EnrollmentDate,GPA,Standing,HelpGraduated,CampusId")] Student student)
         {
             if (ModelState.IsValid)
             {
@@ -78,7 +78,7 @@ namespace CIS420CON.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,LastName,FirstName,MiddleName,Address,City,State,ZipCode,Email,PhoneNumber,EnrollmentDate,Standing,HelpGraduated,CampusId")] Student student)
+        public ActionResult Edit([Bind(Include = "Id,LastName,FirstName,MiddleName,Address,City,State,ZipCode,Email,PhoneNumber,EnrollmentDate, GPA, Standing,HelpGraduated,CampusId")] Student student)
         {
             if (ModelState.IsValid)
             {
