@@ -11,7 +11,7 @@ namespace CIS420CON.Models
 
         public int CourseId { get; set; }
 
-        public int StudnentId { get; set; }
+        public int StudentId { get; set; }
 
         public int ProgramId { get; set; }
 

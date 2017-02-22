@@ -49,7 +49,7 @@ namespace CIS420CON.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,CourseId,StudnentId,ProgramId")] Enrollment enrollment)
+        public ActionResult Create([Bind(Include = "Id,CourseId,StudentId,ProgramId")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {
@@ -85,7 +85,7 @@ namespace CIS420CON.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,CourseId,StudnentId,ProgramId")] Enrollment enrollment)
+        public ActionResult Edit([Bind(Include = "Id,CourseId,StudentId,ProgramId")] Enrollment enrollment)
         {
             if (ModelState.IsValid)
             {
