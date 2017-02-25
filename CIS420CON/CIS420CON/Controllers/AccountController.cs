@@ -70,7 +70,7 @@ namespace CIS420CON.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View("~/Views/Home/Index.cshtml", model);
             }
 
             // This doesn't count login failures towards account lockout
@@ -87,7 +87,7 @@ namespace CIS420CON.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                    return View("~/View/Home/Index.cshtml", model);
             }
         }
 
