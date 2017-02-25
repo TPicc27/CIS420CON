@@ -16,6 +16,5 @@ namespace CIS420CON.Controllers
         {
             return View();
         }
-
     }
 }

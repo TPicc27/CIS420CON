@@ -39,7 +39,7 @@
                     <div class="row text">
                         <div class="form-group">
                             <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Log in" class="btn btn-default" />
+                                <input type="submit" value="Log in" class="btn btn-danger" />
                             </div>
                         </div>
                         <div class="col-xs-6 tabs">
@@ -48,61 +48,72 @@
                             </a>
                         </div>
                     </div>
-                    @*<div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
-                                <input type="submit" value="Log in" class="btn btn-default" />
-                            </div>
-                        </div>
-                        <p>
-                            @Html.ActionLink("Register as a new user", "Register", "Account")
-                        </p>*@
-                    @* Enable this once you have account confirmation enabled for password reset functionality
-                        <p>
-                            @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                        </p>*@
-                }
-                @*<div class="row">
+                    <div class="form-group">
+                        <a href="http://hogs.cis420.net//Account/ForgotPassword" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    <div class="row">
                         <form id="login-form" action="#" method="post" role="form" style="display: block;">
                             <h2>LOGIN</h2>
-                            <div class="form-group">
-                                <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <a href="http://hogs.cis420.net//Account/ForgotPassword" class="forgot-password">Forgot Password</a>
-                            </div>
-                            <div class="form-group pull-left checkbox">
-                                <input id="checkbox1" type="checkbox" name="remember">
-                                <label for="checkbox1">Remember Me</label>
-                            </div>
-                            <div class="form-group row pull-right">
-                                <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
-                            </div>
-                        </form>
-                        <form id="register-form" action="#" method="post" role="form" style="display: none;">
-                            <h2>REGISTER</h2>
-                            <div class="form-group">
-                                <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
-                            </div>
-                            <div class="form-group">
-                                <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                            </div>
-                            <div class="form-group">
-                                <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
-                            </div>
-                            <div class="form-group">
-                                <div class="frow">
-                                    <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                    </div>
+                    <div>
+                    <form id="register-form" action="#" method="post" role="form" style="display: none;">
+                        <h2>REGISTER</h2>
+                    </div>
+                        @*<div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Log in" class="btn btn-default" />
                                 </div>
                             </div>
-                        </form>
-                    </div>*@
-            </div>
+                            <p>
+                                @Html.ActionLink("Register as a new user", "Register", "Account")
+                            </p>*@
+                        @* Enable this once you have account confirmation enabled for password reset functionality
+                            <p>
+                                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                            </p>*@
+                        }
+                        @*<div class="row">
+                                <form id="login-form" action="#" method="post" role="form" style="display: block;">
+                                    <h2>LOGIN</h2>
+                                    <div class="form-group">
+                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <a href="http://hogs.cis420.net//Account/ForgotPassword" class="forgot-password">Forgot Password</a>
+                                    </div>
+                                    <div class="form-group pull-left checkbox">
+                                        <input id="checkbox1" type="checkbox" name="remember">
+                                        <label for="checkbox1">Remember Me</label>
+                                    </div>
+                                    <div class="form-group row pull-right">
+                                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                    </div>
+                                </form>
+                                <form id="register-form" action="#" method="post" role="form" style="display: none;">
+                                    <h2>REGISTER</h2>
+                                    <div class="form-group">
+                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="frow">
+                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>*@
+</div>
             <div class="panel-heading">
 
             </div>
@@ -186,7 +197,7 @@
                         <div class="footerp">
 
                             <h2 class="title-median">Webenlance Pvt. Ltd.</h2>
-                            <p><b>Email id:</b> <a href="mailto:info@webenlance.com">info@webenlance.com</a></p>
+                            <p><b>Email id:</b> <a href="mailto:"karen.rose@louisville.edu">karen.rose@louisville.edu</a></p>
                             <p>
                                 <b>Helpline Numbers </b>
                                 <b style="color:#ffc106;">(8AM to 10PM):</b>  +91-8130890090, +91-8130190010
@@ -201,10 +212,10 @@
 
                             <ul class="nomargin">
 
-                                <a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                                @*<a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
                                 <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
                                 <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
-                                <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+                                <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>*@
 
                             </ul>
                         </div>
