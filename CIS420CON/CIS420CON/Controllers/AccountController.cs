@@ -70,7 +70,7 @@ namespace CIS420CON.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View(model);
+                return View("~/Views/Home/Index.cshtml", model);
             }
 
             // This doesn't count login failures towards account lockout
@@ -79,7 +79,22 @@ namespace CIS420CON.Controllers
             switch (result)
             {
                 case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
+                    var user = await UserManager.FindAsync(model.Email, model.Password);
+                    var roles = await UserManager.GetRolesAsync(user.Id);
+
+                    if(roles.Contains("SuperAdmin"))
+                    {
+                        return RedirectToAction("Home", "Admin");
+                    }
+                    else if(roles.Contains("Admin"))
+                    {
+                        return RedirectToAction("Home", "Admin");
+                    }
+                    else if(roles.Contains("Advisor"))
+                    {
+                        return RedirectToAction("Home", "Advisor");
+                    }
+                    else return RedirectToLocal(returnUrl);
                 case SignInStatus.LockedOut:
                     return View("Lockout");
                 case SignInStatus.RequiresVerification:
@@ -87,7 +102,7 @@ namespace CIS420CON.Controllers
                 case SignInStatus.Failure:
                 default:
                     ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
+                    return View("~/View/Home/Index.cshtml", model);
             }
         }
 

@@ -23,6 +23,12 @@ namespace CIS420CON.Models
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {
+#if DEBUG
+            ////This will create database if one doesn't exist.
+            Database.SetInitializer(new CreateDatabaseIfNotExists<ApplicationDbContext>());
+            ////This will drop and re-create the database if model changes.
+            Database.SetInitializer(new DropCreateDatabaseIfModelChanges<ApplicationDbContext>());
+#endif
         }
 
         public static ApplicationDbContext Create()
@@ -41,5 +47,9 @@ namespace CIS420CON.Models
         public DbSet<Campus> Campus { get; set; }
 
         public DbSet<Event> Events { get; set; }
+
+        public System.Data.Entity.DbSet<CIS420CON.Models.Admin> Admins { get; set; }
+
+        public System.Data.Entity.DbSet<CIS420CON.Models.Advisor> Advisors { get; set; }
     }
 }

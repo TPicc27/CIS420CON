@@ -1,64 +1,188 @@
-﻿@{
+﻿@model CIS420CON.Models.LoginViewModel
+@{
     ViewBag.Title = "Login";
 }
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School of Nursing - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="[ navbar navbar-fixed-top ][ navbar-bootsnipp animate ]" role="navigation">
+        <div class="[ container ]">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="[ navbar-header ]">
+                <button type="button" class="[ navbar-toggle ]" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="[ sr-only ]">Toggle navigation</span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                </button>
+                <div class="[ animbrand ]">
+                    <a class="[ navbar-brand ]" href="http://hogs.cis420.net"><img src="~/Content/Images/Navbar Logo.png" class="img-responsive" /></a>
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="[ collapse navbar-collapse ]" id="bs-example-navbar-collapse-1">
+                <ul class="[ nav navbar-nav navbar-right ]">
+                    <li class="[ visible-xs ]">
+                        <form action="http://bootsnipp.com/search" method="GET" role="search">
+                            <div class="[ input-group ]">
+                                <input type="text" class="[ form-control ]" name="q" placeholder="Search for snippets">
+                                <span class="[ input-group-btn ]">
+                                    <button class="[ btn btn-primary ]" type="submit"><span class="[ glyphicon glyphicon-search ]"></span></button>
+                                    <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                                </span>
+                            </div>
+                        </form>
+                    <li>
+                        <a class="paypal-fit">
+                            <form name="_xclick" action="https://www.paypal.com/uk/cgi-bin/webscr" method="post">
+                                <input type="hidden" name="cmd" value="_xclick">
+                                <input type="hidden" name="business" value="me@mybiz.co.uk">
+                                <input type="hidden" name="item_name" value="Team In Training">
+                                <input type="hidden" name="currency_code" value="GBP">
+                                <input type="hidden" name="amount" value="25.00">
+                                <input type="image" src="http://www.paypal.com/en_GB/i/btn/x-click-butcc-donate.gif" border="0" name="submit"
+                                       alt="Make payments with PayPal - it's fast, free and secure!">
+                            </form>
+                        </a>
+                    </li>
+                    <li>
+                        <!--Facebook Logo to CON Facebook account-->
+                        <a target="_blank" title="find us on Facebook" href="https://www.facebook.com/UniversityOfLouisvilleSchoolOfNursing/">
+                            <img alt="follow me on facebook" src="//login.create.net/images/icons/user/facebook_40x40.png" border="0">
+                        </a>
+                    </li>
+                    <li>
+                        <!--Twitter Logo to CON Twitter handle-->
+                        <a target="_blank" title="follow me on twitter" href="https://twitter.com/uofl_son">
+                            <img alt="follow me on twitter" src="//login.create.net/images/icons/user/twitter_40x40.png" border="0">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</body>
 <!-- Login plugin-->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-
 <div class="login-wrap container">
     <div class="login-wrap-2">
         <div class="panel panel-login">
             <div class="panel-body">
-                <div class="row">
-                    <form id="login-form" action="#" method="post" role="form" style="display: block;">
-                        <h2>LOGIN</h2>
-                        <div class="form-group">
-                            <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                    @Html.AntiForgeryToken()
+                    <h4>Log In</h4>
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                         </div>
-                        <div class="form-group">
-                            <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
+                        <div class="col-md-9">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
                         </div>
-                        <div class="form-group">
-                            <a href="http://hogs.cis420.net//Account/ForgotPassword" class="forgot-password">Forgot Password</a>
-                        </div>
-                        <div class="form-group pull-left checkbox">
-                            <input id="checkbox1" type="checkbox" name="remember">
-                            <label for="checkbox1">Remember Me</label>
-                        </div>
-                        <div class="form-group row pull-right">
-                            <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
-                        </div>
-                    </form>
-                    <form id="register-form" action="#" method="post" role="form" style="display: none;">
-                        <h2>REGISTER</h2>
-                        <div class="form-group">
-                            <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
-                        </div>
-                        <div class="form-group">
-                            <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                        </div>
-                        <div class="form-group">
-                            <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
-                        </div>
-                        <div class="form-group">
-                            <div class="frow">
-                                <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-10">
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
+                    </div>
+                    <div class="row text">
+                        <div class="form-group">
+                            <div class="col-md-offset-5 col-md-10">
+                                <input type="submit" value="Log in" class="btn btn-danger" />
+                            </div>
+                        </div>
+                        <div class="col-md-offset-7 col-md-8">
+                            <a href="#" id="register-form-link">
+                                <div id="register-form-link" class="register">@Html.ActionLink("Create Account", "Register", "Account")</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <a href="http://hogs.cis420.net//Account/ForgotPassword" class="forgot-password">Forgot Password?</a>
+                    </div>
+                    @*<div class="row">
+                        <form id="login-form" action="#" method="post" role="form" style="display: block;">
+                            <h2>LOGIN</h2>
+                    </div>
+                    <div>
+                    <form id="register-form" action="#" method="post" role="form" style="display: none;">
+                        <h2>REGISTER</h2>
+                    </div>*@
+                        @*<div class="form-group">
+                                <div class="col-md-offset-2 col-md-10">
+                                    <input type="submit" value="Log in" class="btn btn-default" />
+                                </div>
+                            </div>
+                            <p>
+                                @Html.ActionLink("Register as a new user", "Register", "Account")
+                            </p>*@
+                        @* Enable this once you have account confirmation enabled for password reset functionality
+                            <p>
+                                @Html.ActionLink("Forgot your password?", "ForgotPassword")
+                            </p>*@
+                        }
+                        @*<div class="row">
+                                <form id="login-form" action="#" method="post" role="form" style="display: block;">
+                                    <h2>LOGIN</h2>
+                                    <div class="form-group">
+                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <a href="http://hogs.cis420.net//Account/ForgotPassword" class="forgot-password">Forgot Password</a>
+                                    </div>
+                                    <div class="form-group pull-left checkbox">
+                                        <input id="checkbox1" type="checkbox" name="remember">
+                                        <label for="checkbox1">Remember Me</label>
+                                    </div>
+                                    <div class="form-group row pull-right">
+                                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
+                                    </div>
+                                </form>
+                                <form id="register-form" action="#" method="post" role="form" style="display: none;">
+                                    <h2>REGISTER</h2>
+                                    <div class="form-group">
+                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="frow">
+                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>*@
+</div>
             <div class="panel-heading">
-                <div class="row text">
-                    <div class="col-xs-6 tabs">
-                        <a href="#" class="active" id="login-form-link"><div class="login">LOGIN</div></a>
-                    </div>
-                    <div class="col-xs-6 tabs">
-                        <a href="#" id="register-form-link"><div class="register">REGISTER</div></a>
-                    </div>
-                </div>
+
             </div>
         </div>
     </div>
@@ -68,7 +192,6 @@
     <!-- Overlay -->
     <div class="overlay">
     </div>
-
     <!-- Indicators -->
     <ol class="carousel-indicators">
         <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
@@ -77,7 +200,6 @@
         <li data-target="#bs-carousel" data-slide-to="3"></li>
         <li data-target="#bs-carousel" data-slide-to="4"></li>
     </ol>
-
     <!-- Wrapper for slides -->
     <div class="carousel-inner">
         <div class="item slides active">
@@ -105,114 +227,26 @@
         </div>
     </div>
 </div>
-
 <!--footer-->
 <footer class="footer1">
     <div class="container">
         <div class="row">
             <!-- row -->
-
+            <div class="col-lg-2 col-md-3">
+                <!-- widgets column left -->
+                <ul class="list-unstyled clear-margins">
+                    <!-- widgets -->
+                    <li class="widget-container widget_nav_menu">
+                        <!-- widgets list -->
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.329353668357!2d-85.75114148465826!3d38.24866677757718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886972b70ea30f9b%3A0x6e2ae03015f84c2a!2sSchool+of+Nursing!5e0!3m2!1sen!2sus!4v1488068603421" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- widgets column left end -->
             <div class="col-lg-3 col-md-3">
                 <!-- widgets column left -->
                 <ul class="list-unstyled clear-margins">
                     <!-- widgets -->
-
-                    <li class="widget-container widget_nav_menu">
-                        <!-- widgets list -->
-
-                        <h1 class="title-widget">Useful links</h1>
-
-                        <ul>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> About Us</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Contact Us</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Success Stories</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> PG Courses</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Achiever's Batch</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  Regular Batch</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  Test & Discussion</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  Fast Track T & D</a></li>
-                        </ul>
-
-                    </li>
-
-                </ul>
-
-
-            </div><!-- widgets column left end -->
-
-
-
-            <div class="col-lg-3 col-md-3">
-                <!-- widgets column left -->
-
-                <ul class="list-unstyled clear-margins">
-                    <!-- widgets -->
-
-                    <li class="widget-container widget_nav_menu">
-                        <!-- widgets list -->
-
-                        <h1 class="title-widget">Useful links</h1>
-
-                        <ul>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  Test Series Schedule</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  Postal Coaching</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  PG Dr. Bhatia Books</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  UG Courses</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  Satellite Education</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  Study Centres</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  State P.G. Mocks</a></li>
-                            <li><a href="#" target="_blank"><i class="fa fa-angle-double-right"></i> Results</a></li>
-
-                        </ul>
-
-                    </li>
-
-                </ul>
-
-
-            </div><!-- widgets column left end -->
-
-
-
-            <div class="col-lg-3 col-md-3">
-                <!-- widgets column left -->
-
-                <ul class="list-unstyled clear-margins">
-                    <!-- widgets -->
-
-                    <li class="widget-container widget_nav_menu">
-                        <!-- widgets list -->
-
-                        <h1 class="title-widget">Useful links</h1>
-
-                        <ul>
-
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Enquiry Form</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Online Test Series</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Grand Tests Series</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Subject Wise Test Series</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Smart Book</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Test Centres</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  Admission Form</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  Computer Live Test</a></li>
-                        </ul>
-
-                    </li>
-
-                </ul>
-
-
-            </div><!-- widgets column left end -->
-
-
-            <div class="col-lg-3 col-md-3">
-                <!-- widgets column center -->
-
-
-
-                <ul class="list-unstyled clear-margins">
-                    <!-- widgets -->
-
                     <li class="widget-container widget_recent_news">
                         <!-- widgets list -->
 
@@ -220,26 +254,23 @@
 
                         <div class="footerp">
 
-                            <h2 class="title-median">Webenlance Pvt. Ltd.</h2>
-                            <p><b>Email id:</b> <a href="mailto:info@webenlance.com">info@webenlance.com</a></p>
+                            <p><b>Email:</b> <a href="mailto:"karen.rose@louisville.edu">karen.rose@louisville.edu</a></p>
                             <p>
-                                <b>Helpline Numbers </b>
-                                <b style="color:#ffc106;">(8AM to 10PM):</b>  +91-8130890090, +91-8130190010
+
                             </p>
 
-                            <p><b>Corp Office / Postal Address</b></p>
-                            <p><b>Phone Numbers : </b>7042827160, </p>
+                            <p><b>School</b><i class="fa fa-phone"> :</i>  7042827160, </p>
                             <p> 011-27568832, 9868387223</p>
                         </div>
 
-                        <div class="social-icons">
+                        @*<div class="social-icons">
 
-                            <ul class="nomargin">
+                            <ul class="nomargin">*@
 
-                                <a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                                @*<a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
                                 <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
                                 <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
-                                <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>
+                                <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>*@
 
                             </ul>
                         </div>
@@ -255,16 +286,15 @@
         <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <div class="copyright">
-                    © 2015, Webenlance, All rights reserved
+                    © 2017 Nothing But Net
 
                 </div>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                 <div class="design">
-                    <a href="#">Franchisee </a> |  <a target="_blank" href="http://www.webenlance.com">Web Design & Development by Webenlance</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+</div>
