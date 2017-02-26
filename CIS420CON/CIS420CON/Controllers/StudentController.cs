@@ -13,7 +13,7 @@ namespace CIS420CON.Controllers
     public class StudentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
-
+ 
         // GET: Student
         public ActionResult Index()
         {
@@ -123,5 +123,51 @@ namespace CIS420CON.Controllers
             }
             base.Dispose(disposing);
         }
+
+        //GPA Report for 4.0
+        public ActionResult GetGpaReport1(decimal gpaThreshold)
+        {
+
+            var students = db.Students.Where(s => s.GPA >= gpaThreshold).ToList();
+
+            return View("Index", students);
+        }
+        
+        //GPA Report for 3.75
+        public ActionResult GetGpaReport2(decimal gpaThreshold)
+        {
+
+            var students = db.Students.Where(s => s.GPA >= gpaThreshold).ToList();
+
+            return View("Index", students);
+        }
+
+        //GPA Report for 3.5
+        public ActionResult GetGpaReport3(decimal gpaThreshold)
+        {
+
+            var students = db.Students.Where(s => s.GPA >= gpaThreshold).ToList();
+
+            return View("Index", students);
+        }
+
+        //GPA Report for 3.25
+        public ActionResult GetGpaReport4(decimal gpaThreshold)
+        {
+
+            var students = db.Students.Where(s => s.GPA >= gpaThreshold).ToList();
+
+            return View("Index", students);
+        }
+
+        //GPA Report for 3.0
+        public ActionResult GetGpaReport5(decimal gpaThreshold)
+        {
+
+            var students = db.Students.Where(s => s.GPA >= gpaThreshold).ToList();
+
+            return View("Index", students);
+        }
+
     }
 }
