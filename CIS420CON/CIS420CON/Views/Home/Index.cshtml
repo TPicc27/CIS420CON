@@ -29,7 +29,7 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <div class="col-md-offset-2 col-md-10">
+                        <div class="col-md-offset-3 col-md-10">
                             <div class="checkbox">
                                 @Html.CheckBoxFor(m => m.RememberMe)
                                 @Html.LabelFor(m => m.RememberMe)
@@ -38,27 +38,27 @@
                     </div>
                     <div class="row text">
                         <div class="form-group">
-                            <div class="col-md-offset-2 col-md-10">
+                            <div class="col-md-offset-5 col-md-10">
                                 <input type="submit" value="Log in" class="btn btn-danger" />
                             </div>
                         </div>
-                        <div class="col-xs-6 tabs">
+                        <div class="col-md-offset-7 col-md-8">
                             <a href="#" id="register-form-link">
-                                <div id="register-form-link" class="register">@Html.ActionLink("Register as new user", "Register", "Account")</div>
+                                <div id="register-form-link" class="register">@Html.ActionLink("Create Account", "Register", "Account")</div>
                             </a>
                         </div>
                     </div>
                     <div class="form-group">
                         <a href="http://hogs.cis420.net//Account/ForgotPassword" class="forgot-password">Forgot Password?</a>
                     </div>
-                    <div class="row">
+                    @*<div class="row">
                         <form id="login-form" action="#" method="post" role="form" style="display: block;">
                             <h2>LOGIN</h2>
                     </div>
                     <div>
                     <form id="register-form" action="#" method="post" role="form" style="display: none;">
                         <h2>REGISTER</h2>
-                    </div>
+                    </div>*@
                         @*<div class="form-group">
                                 <div class="col-md-offset-2 col-md-10">
                                     <input type="submit" value="Log in" class="btn btn-default" />
@@ -165,22 +165,13 @@
     <div class="container">
         <div class="row">
             <!-- row -->
-            <div class="col-lg-3 col-md-3">
+            <div class="col-lg-2 col-md-3">
                 <!-- widgets column left -->
                 <ul class="list-unstyled clear-margins">
                     <!-- widgets -->
                     <li class="widget-container widget_nav_menu">
                         <!-- widgets list -->
-                        <h1 class="title-widget">Useful links</h1>
-                        <ul>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> About Us</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Contact Us</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Success Stories</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> PG Courses</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i> Achiever's Batch</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  Regular Batch</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  Test & Discussion</a></li>
-                            <li><a href="#"><i class="fa fa-angle-double-right"></i>  Fast Track T & D</a></li>
+                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.329353668357!2d-85.75114148465826!3d38.24866677757718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886972b70ea30f9b%3A0x6e2ae03015f84c2a!2sSchool+of+Nursing!5e0!3m2!1sen!2sus!4v1488068603421" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
                         </ul>
                     </li>
                 </ul>
@@ -196,21 +187,18 @@
 
                         <div class="footerp">
 
-                            <h2 class="title-median">Webenlance Pvt. Ltd.</h2>
-                            <p><b>Email id:</b> <a href="mailto:"karen.rose@louisville.edu">karen.rose@louisville.edu</a></p>
+                            <p><b>Email:</b> <a href="mailto:"karen.rose@louisville.edu">karen.rose@louisville.edu</a></p>
                             <p>
-                                <b>Helpline Numbers </b>
-                                <b style="color:#ffc106;">(8AM to 10PM):</b>  +91-8130890090, +91-8130190010
+
                             </p>
 
-                            <p><b>Corp Office / Postal Address</b></p>
-                            <p><b>Phone Numbers : </b>7042827160, </p>
+                            <p><b>School</b><i class="fa fa-phone"> :</i>  7042827160, </p>
                             <p> 011-27568832, 9868387223</p>
                         </div>
 
-                        <div class="social-icons">
+                        @*<div class="social-icons">
 
-                            <ul class="nomargin">
+                            <ul class="nomargin">*@
 
                                 @*<a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
                                 <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
