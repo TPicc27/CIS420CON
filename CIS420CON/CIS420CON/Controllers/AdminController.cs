@@ -17,7 +17,7 @@ namespace CIS420CON.Controllers
         // GET: Admin
         public ActionResult Home()
         {
-            return View(db.Admins.ToList());
+            return View();
         }
 
         // GET: Admin/Details/5
