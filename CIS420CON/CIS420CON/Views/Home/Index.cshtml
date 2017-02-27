@@ -1,9 +1,4 @@
-﻿@model CIS420CON.Models.RegisterLoginViewModel
-@using (Html.BeginForm("Login", "Auth", FormMethod.Post))
-{
-    @Html.TextBoxFor(model => model.Email)
-    @Html.PasswordFor(model => model.Password)
-}
+﻿@model CIS420CON.Models.LoginViewModel
 @{
     ViewBag.Title = "Login";
 }
