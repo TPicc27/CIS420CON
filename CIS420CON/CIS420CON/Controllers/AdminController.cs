@@ -20,6 +20,21 @@ namespace CIS420CON.Controllers
             return View();
         }
 
+        public ActionResult Logoff()
+        {
+            System.Web.Security.FormsAuthentication.SignOut();
+
+            return RedirectToAction("Index", "Home");
+
+        }
+
+        public ActionResult Calendar()
+        {
+            return View();
+        }
+
+
+
         // GET: Admin/Details/5
         public ActionResult Details(int? id)
         {
