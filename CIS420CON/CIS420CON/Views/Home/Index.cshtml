@@ -1,125 +1,135 @@
-﻿@model CIS420CON.Models.LoginViewModel
+﻿@model CIS420CON.Models.RegisterLoginViewModel
+@using (Html.BeginForm("Login", "Auth", FormMethod.Post))
+{
+    @Html.TextBoxFor(model => model.Email)
+    @Html.PasswordFor(model => model.Password)
+}
 @{
     ViewBag.Title = "Login";
 }
 <!-- Login plugin-->
 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
-<div class="login-wrap container">
+<<div class="login-wrap">
     <div class="login-wrap-2">
-        <div class="panel panel-login">
-            <div class="panel-body">
-                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                    @Html.AntiForgeryToken()
-                    <h4>Log In</h4>
-                    <hr />
-                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label" })
-                        <div class="col-md-9">
-                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
+        <div class="login-signup">
+            <div class="login-header">
+                <div class="row">
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="login-details">
+                            <ul class="nav nav-tabs navbar-right">
+                                <li class="active"><a data-toggle="tab" href="#login">Login</a></li>
+                                <li><a data-toggle="tab" href="#register">Register</a></li>
+                            </ul>
                         </div>
                     </div>
-                    <div class="form-group">
-                        @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
-                        <div class="col-md-9">
-                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+            <div class="tab-content">
+                <div id="register" class="tab-pane">
+                    <div class="login-inner">
+                        <div class="title">
+                            <h1>Welcome</h1>
                         </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="col-md-offset-3 col-md-10">
-                            <div class="checkbox">
-                                @Html.CheckBoxFor(m => m.RememberMe)
-                                @Html.LabelFor(m => m.RememberMe)
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row text">
-                        <div class="form-group">
-                            <div class="col-md-offset-5 col-md-10">
-                                <input type="submit" value="Log in" class="btn btn-danger" />
-                            </div>
-                        </div>
-                        <div class="col-md-offset-7 col-md-8">
-                            <a href="#" id="register-form-link">
-                                <div id="register-form-link" class="register">@Html.ActionLink("Create Account", "Register", "Account")</div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <a href="http://hogs.cis420.net//Account/ForgotPassword" class="forgot-password">Forgot Password?</a>
-                    </div>
-                    @*<div class="row">
-                        <form id="login-form" action="#" method="post" role="form" style="display: block;">
-                            <h2>LOGIN</h2>
-                    </div>
-                    <div>
-                    <form id="register-form" action="#" method="post" role="form" style="display: none;">
-                        <h2>REGISTER</h2>
-                    </div>*@
-                        @*<div class="form-group">
-                                <div class="col-md-offset-2 col-md-10">
-                                    <input type="submit" value="Log in" class="btn btn-default" />
+                        <div class="login-form">
+                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <h6 class="text-center">Create Account</h6>
+                                <hr />
+                                @Html.ValidationSummary("", new { @class = "text-danger" })
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                                    </div>
                                 </div>
-                            </div>
-                            <p>
-                                @Html.ActionLink("Register as a new user", "Register", "Account")
-                            </p>*@
-                        @* Enable this once you have account confirmation enabled for password reset functionality
-                            <p>
-                                @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                            </p>*@
-                        }
-                        @*<div class="row">
-                                <form id="login-form" action="#" method="post" role="form" style="display: block;">
-                                    <h2>LOGIN</h2>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Role, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(m => m.Role, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-2 col-md-10">
+                                        <input type="submit" class="btn btn-default" value="Register" />
+                                    </div>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+                <div id="login" class="tab-pane fade in active">
+                    <div class="login-inner">
+                        <div class="title">
+                            <h1>Welcome <span>back!</span></h1>
+                        </div>
+                        <div class="login-form">
+                            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                <div class="form-details">
+                                    @Html.AntiForgeryToken()
+                                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                                     <div class="form-group">
-                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <a href="http://hogs.cis420.net//Account/ForgotPassword" class="forgot-password">Forgot Password</a>
-                                    </div>
-                                    <div class="form-group pull-left checkbox">
-                                        <input id="checkbox1" type="checkbox" name="remember">
-                                        <label for="checkbox1">Remember Me</label>
-                                    </div>
-                                    <div class="form-group row pull-right">
-                                        <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn btn-login" value="Log In">
-                                    </div>
-                                </form>
-                                <form id="register-form" action="#" method="post" role="form" style="display: none;">
-                                    <h2>REGISTER</h2>
-                                    <div class="form-group">
-                                        <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password">
-                                    </div>
-                                    <div class="form-group">
-                                        <div class="frow">
-                                            <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn btn-register" value="Register Now">
+                                        @Html.LabelFor(m => m.Email, new { @class = "col-md-3 control-label" })
+                                        <div class="col-md-9">
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Email, "", new { @class = "text-danger" })
                                         </div>
                                     </div>
-                                </form>
-                            </div>*@
-</div>
-            <div class="panel-heading">
-
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Password, new { @class = "col-md-3 control-label" })
+                                        <div class="col-md-9">
+                                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-3 col-md-10">
+                                            <div class="checkbox">
+                                                @Html.CheckBoxFor(m => m.RememberMe)
+                                                @Html.LabelFor(m => m.RememberMe)
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <a href="http://hogs.cis420.net//Account/ForgotPassword" class="forgot-password">Forgot Password?</a>
+                                    </div>
+                                </div>
+                                    <button type="submit" class="form-btn" onsubmit="">Login</button>
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
 </div>
+
+
 <!-- Carousel -->
 <div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
     <!-- Overlay -->
@@ -171,9 +181,9 @@
                     <!-- widgets -->
                     <li class="widget-container widget_nav_menu">
                         <!-- widgets list -->
-                      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.329353668357!2d-85.75114148465826!3d38.24866677757718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886972b70ea30f9b%3A0x6e2ae03015f84c2a!2sSchool+of+Nursing!5e0!3m2!1sen!2sus!4v1488068603421" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
-                        </ul>
-                    </li>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.329353668357!2d-85.75114148465826!3d38.24866677757718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886972b70ea30f9b%3A0x6e2ae03015f84c2a!2sSchool+of+Nursing!5e0!3m2!1sen!2sus!4v1488068603421" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </ul>
+                </li>
                 </ul>
             </div><!-- widgets column left end -->
             <div class="col-lg-3 col-md-3">
@@ -187,7 +197,7 @@
 
                         <div class="footerp">
 
-                            <p><b>Email:</b> <a href="mailto:"karen.rose@louisville.edu">karen.rose@louisville.edu</a></p>
+                            <p><b>Email:</b> <a href="mailto:" karen.rose@louisville.edu">karen.rose@louisville.edu</a></p>
                             <p>
 
                             </p>
@@ -200,17 +210,17 @@
 
                             <ul class="nomargin">*@
 
-                                @*<a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
-                                <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
-                                <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
-                                <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>*@
+                        @*<a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                            <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                            <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                            <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>*@
 
-                            </ul>
-                        </div>
-                    </li>
                 </ul>
             </div>
+            </li>
+            </ul>
         </div>
+    </div>
     </div>
 </footer>
 <!--header-->
@@ -230,4 +240,4 @@
         </div>
     </div>
 </div>
-</div>
+    </div>
