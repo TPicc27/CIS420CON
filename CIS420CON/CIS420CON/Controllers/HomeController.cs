@@ -16,5 +16,10 @@ namespace CIS420CON.Controllers
         {
             return View();
         }
+
+        public ActionResult StudentHome()
+        {
+            return View();
+        }
     }
 }

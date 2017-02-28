@@ -1,7 +1,6 @@
-﻿@model CIS420CON.Models.Advisor
-
+﻿
 @{
-    ViewBag.Title = "Home";
+    ViewBag.Title = "StudentHome";
 }
 
 <head>
@@ -32,10 +31,12 @@
 
                 </li>
                 <li class="dropdown">
-                    <a href="#" style ="color: rgb(0,0,0)"class="dropdown-toggle" data-toggle="dropdown">Hello, Advisor ▼</a>
+                    <a href="#" style="color: rgb(0,0,0)" class="dropdown-toggle" data-toggle="dropdown">Hello, Student ▼
+                    </a>
                     <ul class="dropdown-menu">
                         <li><a href="#"> Edit Profile</a></li>
-                        <li><a href="#"> Change Password</a></li>
+                        <li><a href="#"> Change Password</a>
+                        </li>
                         <li class="divider"></li>
                         <li><a href="~/Controllers/AdminController.cs/Logoff"> Logout</a></li>
                     </ul>
@@ -45,25 +46,22 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="http://hogs.cis420.net/Advisor/Home"> Home </a>
+                        <a href="http://hogs.cis420.net/Home/StudentHome"> Home </a>
+                    </li>
+                    <li>
+                        <a href="#"> Clinical Compliance </a>
+                    </li>
+                    <li>
+                        <a href="#"> Program of Study </a>
+                    </li>
+                    <li>
+                        <a href="#"> Alerts </a>
+                    </li>
+                    <li>
+                        <a href="#"> Advising </a>
                     </li>
                     <li>
                         <a href="#"> Calendar </a>
-                    </li>
-                    <li>
-                        <a href="#"> Student Records </a>
-                    </li>
-                    <li>
-                        <a href="#"> Reports </a>
-                    </li>
-                    <li>
-                        <a href="#"> CRM </a>
-                    </li>
-                    <li>
-                        <a href="#"> Calendar </a>
-                    </li>
-                    <li>
-                        <a href="#"> Serach </a>
                     </li>
                 </ul>
             </div>
