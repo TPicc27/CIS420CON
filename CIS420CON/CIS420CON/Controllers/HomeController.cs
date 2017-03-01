@@ -1,17 +1,18 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Web;
+using System.Net;
+using System.Net.Mail;
 using System.Web.Mvc;
-using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
 using CIS420CON.Models;
+using CIS420CON.Models.ViewModels;
+
 
 
 namespace CIS420CON.Controllers
 {
     public class HomeController : Controller
     {
+        public ApplicationDbContext _db = new ApplicationDbContext();
         public ActionResult Index()
         {
             return View();
@@ -46,5 +47,32 @@ namespace CIS420CON.Controllers
         {
             return View();
         }
+
+        public ActionResult PartialExample()
+        {
+            var viewModel = new HomeIndexViewModel()
+            {
+                StudentsList = _db.Students.Take(2),
+                TodosList = _db.Events.Take(2)
+            };
+            return View(viewModel);
+        }
+
+        public PartialViewResult GetStudentsList()
+        {
+            var students = _db.Students.Take(2);
+            return PartialView("_StudentsPartial", students);
+        }
+
+
+
+
+        public PartialViewResult GetTodosList()
+        {
+            var todos = _db.Events.Take(2);
+
+            return PartialView("_TodosPartial", todos);
+        }
+
     }
 }

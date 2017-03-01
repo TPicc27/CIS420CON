@@ -13,9 +13,9 @@
         <div class="col-md-12">
             <div class="col-md-4">@Html.DisplayFor(modelItem => list[i].UserName)</div>
             <div class="col-md-4">
-                @foreach (var user in Model)
+               @foreach (var user in Model)
                 {
-                    foreach (var role in user.Roles)
+                    //foreach (var role in user.Roles)
                     {
                         for (int r = 0; r < user.Roles.Count; r++)
                         {

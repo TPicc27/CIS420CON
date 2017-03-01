@@ -1,4 +1,4 @@
-﻿
+﻿@model CIS420CON.Models.ViewModels.HomeIndexViewModel
 @{
     ViewBag.Title = "StudentHome";
 }
@@ -74,6 +74,36 @@
                 <div class="row" id="main">
                     <div class="col-sm-12 col-md-12 well" id="content">
                         <h1>Welcome Student!</h1>
+                        div class="panel panel-primary" style="margin-top:30px;">
+                        <div class="panel-heading">
+                            <h3>2 Partials Example</h3>
+                        </div>
+                        <div class="panel-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="panel-primary">
+                                        <div class="panel-heading">
+                                            <h4>Partial 1</h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            @Html.Partial("StudentsPartial", Model.StudentsList)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+
+                                    <div class="panel-primary">
+                                        <div class="panel-heading">
+                                            <h4>Partial 2 </h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            @Html.Partial("TodosPartial", Model.TodosList)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     </div>
                 </div>
                 <!-- /.row -->
