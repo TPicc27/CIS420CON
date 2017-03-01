@@ -21,5 +21,30 @@ namespace CIS420CON.Controllers
         {
             return View();
         }
+
+        public ActionResult ClinicalCompliance()
+        {
+            return View();
+        }
+
+        public ActionResult ProgramofStudy()
+        {
+            return View();
+        }
+
+        public ActionResult Alerts()
+        {
+            return View();
+        }
+
+        public ActionResult Advising()
+        {
+            return View();
+        }
+
+        public ActionResult StudentCalendar()
+        {
+            return View();
+        }
     }
 }

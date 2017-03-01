@@ -723,7 +723,11 @@ ul {
     width: 5px;
 }
 
-
+.email:hover
+{
+    color: red;
+    text-decoration: underline !important
+}
 
 .widget_nav_menu ul {
     list-style: outside none none;

@@ -20,6 +20,30 @@ namespace CIS420CON.Controllers
             return View();
         }
 
+        public ActionResult AdvisorCalendar()
+        {
+            return View();
+        }
+
+        public ActionResult StudentRecords()
+        {
+            return View();
+        }
+
+        public ActionResult Reports()
+        {
+            return View();
+        }
+
+        public ActionResult CRM()
+        {
+            return View();
+        }
+
+        public ActionResult AdvisorSearch()
+        {
+            return View();
+        }
         // GET: Advisor/Details/5
         public ActionResult Details(int? id)
         {

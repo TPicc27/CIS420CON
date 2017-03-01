@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CIS420CON.Models;
+using System.IO;
 
 namespace CIS420CON.Controllers
 {
@@ -29,6 +30,38 @@ namespace CIS420CON.Controllers
         }
 
         public ActionResult Calendar()
+        {
+            return View();
+        }
+
+        public ActionResult AdminReports()
+        {
+            return View();
+        }
+
+        public ActionResult ManageUsers()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ImportDocs(HttpPostedFileBase file)
+        {
+            if (file != null && file.ContentLength > 0)
+            {
+                // extract only the filename
+                var fileName = Path.GetFileName(file.FileName);
+                // store the file inside ~/App_Data/uploads folder
+                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
+                file.SaveAs(path);
+                return RedirectToAction("ImportDocs");
+            }
+            // redirect back to the index action to show the form once again
+            return View("ImportDocs");
+        }
+
+
+        public ActionResult ExportDocs()
         {
             return View();
         }
