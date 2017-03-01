@@ -1,10 +1,4 @@
-﻿@model CIS420CON.Models.RegisterLoginViewModel
-@using (Html.BeginForm("Login", "Auth", FormMethod.Post))
-{
-    @Html.TextBoxFor(model => model.Email)
-    @Html.PasswordFor(model => model.Password)
-}
-@{
+﻿@{
     ViewBag.Title = "Login";
 }
 <head>
@@ -98,6 +92,7 @@
                             <h1>Welcome</h1>
                         </div>
                         <div class="login-form">
+                            @Html.Partial("_RegisterPartial")
                             @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                             {
                                 @Html.AntiForgeryToken()
@@ -155,6 +150,7 @@
                             <h1>Welcome <span>back!</span></h1>
                         </div>
                         <div class="login-form">
+                            @Html.Partial("_LoginPartial")
                             @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
                             {
                                 <div class="form-details">

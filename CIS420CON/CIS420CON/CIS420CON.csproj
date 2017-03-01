@@ -331,6 +331,8 @@
     <Content Include="Views\Advisor\Details.cshtml" />
     <Content Include="Views\Advisor\Edit.cshtml" />
     <Content Include="Views\Advisor\Home.cshtml" />
+    <Content Include="Views\Home\_LoginPartial.cshtml" />
+    <Content Include="Views\Home\_RegisterPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
