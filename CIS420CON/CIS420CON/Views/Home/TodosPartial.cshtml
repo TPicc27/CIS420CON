@@ -1,19 +1,17 @@
 ﻿@model IEnumerable<CIS420CON.Models.Event>
-
-<p>No error, I just haven't seeded data.</p>
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.id)
+            @Html.DisplayNameFor(model => model.Id)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.start_date)
+            @Html.DisplayNameFor(model => model.StartDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.end_date)
+            @Html.DisplayNameFor(model => model.EndDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.text)
+            @Html.DisplayNameFor(model => model.Description)
         </th>
         <th></th>
     </tr>
@@ -22,16 +20,16 @@
     {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.id)
+               <p>@Html.DisplayFor(modelItem => item.Id)</p>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.start_date)
+              <p> @Html.DisplayFor(modelItem => item.StartDate) </p>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.end_date)
+              <p>  @Html.DisplayFor(modelItem => item.EndDate)</p>
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.text)
+              <p>  @Html.DisplayFor(modelItem => item.Description)</p>
             </td>
             <td>
                 @*@Html.ActionLink("Edit", "Edit", new { id = item.Id }) |
@@ -43,5 +41,4 @@
 
 </table>
 
-Contact GitHub API Training Shop Blog About
-© 2017 GitHub, Inc. Terms Privacy Security Status Help
+

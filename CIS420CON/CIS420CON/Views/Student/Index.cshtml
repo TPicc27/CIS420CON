@@ -71,7 +71,7 @@
                 <!-- Page Heading -->
                 <div class="row" id="main">
                     <div class="col-sm-12 col-md-12 well" id="content">
-                        <h1> @Html.ActionLink("Create New", "Create") </h1>
+                        <p> @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-primary", @style = "color: white; background-color: red;" }) </p>
 
                             <table class="table">
                                 <tr>
@@ -92,7 +92,7 @@
 
                                 @foreach (var item in Model)
                                 {
-                                    <tr>
+                                    <tr style="position:relative; right: -100px;">
                                         <td>
                                             @Html.DisplayFor(modelItem => item.LastName)
                                         </td>

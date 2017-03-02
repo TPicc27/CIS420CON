@@ -51,5 +51,7 @@ namespace CIS420CON.Models
         public System.Data.Entity.DbSet<CIS420CON.Models.Admin> Admins { get; set; }
 
         public System.Data.Entity.DbSet<CIS420CON.Models.Advisor> Advisors { get; set; }
+
+        public System.Data.Entity.DbSet<CIS420CON.Models.UDApplication> UDApplications { get; set; }
     }
 }

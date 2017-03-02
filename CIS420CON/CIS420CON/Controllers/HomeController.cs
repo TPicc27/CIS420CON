@@ -18,11 +18,6 @@ namespace CIS420CON.Controllers
             return View();
         }
 
-        public ActionResult StudentHome()
-        {
-            return View();
-        }
-
         public ActionResult ClinicalCompliance()
         {
             return View();
@@ -48,7 +43,7 @@ namespace CIS420CON.Controllers
             return View();
         }
 
-        public ActionResult PartialExample()
+        public ActionResult StudentHome()
         {
             var viewModel = new HomeIndexViewModel()
             {
@@ -61,7 +56,7 @@ namespace CIS420CON.Controllers
         public PartialViewResult GetStudentsList()
         {
             var students = _db.Students.Take(2);
-            return PartialView("_StudentsPartial", students);
+            return PartialView("StudentsPartial", students);
         }
 
 
@@ -71,7 +66,7 @@ namespace CIS420CON.Controllers
         {
             var todos = _db.Events.Take(2);
 
-            return PartialView("_TodosPartial", todos);
+            return PartialView("TodosPartial", todos);
         }
 
     }
