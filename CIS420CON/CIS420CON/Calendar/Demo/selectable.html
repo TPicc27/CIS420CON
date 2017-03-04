@@ -1,7 +1,8 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
 <meta charset='utf-8' />
+<link rel='stylesheet' href='../lib/cupertino/jquery-ui.min.css' />
 <link href='../fullcalendar.min.css' rel='stylesheet' />
 <link href='../fullcalendar.print.min.css' rel='stylesheet' media='print' />
 <script src='../lib/moment.min.js'></script>
@@ -9,9 +10,27 @@
 <script src='../fullcalendar.min.js'></script>
 <script>
 
-	$(document).ready(function() {
+    $(document).ready(function () {
+
+        $('#external-events .fc-event').each(function() {
+
+            // store data so the calendar knows to render an event upon drop
+            $(this).data('event', {
+                title: $.trim($(this).text()), // use the element's text as the event title
+                stick: true // maintain when user navigates (see docs on the renderEvent method)
+            });
+
+            // make the event draggable using jQuery UI
+            $(this).draggable({
+                zIndex: 999,
+                revert: true,      // will cause the event to go back to its
+                revertDuration: 0  //  original position after the drag
+            });
+
+        });
 		
-		$('#calendar').fullCalendar({
+	    $('#calendar').fullCalendar({
+            theme: true,
 			header: {
 				left: 'prev,next today',
 				center: 'title',
@@ -34,9 +53,39 @@
 				}
 				$('#calendar').fullCalendar('unselect');
 			},
+
+			eventClick: function(event){
+			    
+
+			    $( "#edit_class" ).dialog({
+			        autoOpen: false,
+			        height: 300,
+			        width: 350,
+			        modal: true,
+			        buttons: {
+			            "Delete Class": function() {
+			                var event_id = $("#edit_event_id").val();
+			                $.ajax({
+			                    type:"POST",
+			                    url: @Url.Action(""),
+			                    data: "event_id=" + event_id,
+
+			                });
+			                $('#calendar').fullCalendar('refetchEvents'); //the event has been removed from the database at this point so I just refetch the events
+			                $( this ).dialog( "close" );
+			            },
+
+			        },
+
+			    });
+			},
+			    
+
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 			events: [
+			
+	
 				{
 					title: 'All Day Event',
 					start: '2017-02-01'
@@ -115,7 +164,13 @@
 </head>
 <body>
 
-	<div id='calendar'></div>
+    <div id='calendar'></div>
+    <button id='Delete'>Delete Events</button></p>
+
+    <div id="edit_class" title="Edit Class">
+
 
 </body>
 </html>
+
+ 
