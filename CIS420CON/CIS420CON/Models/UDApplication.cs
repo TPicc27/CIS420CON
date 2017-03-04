@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace CIS420CON.Models
 {
@@ -38,11 +39,14 @@ namespace CIS420CON.Models
         public bool SelectProgram { get; set; }
         [DisplayName("What semester are you applying for?")]
         public bool Semester { get; set; }
+        [DataType(DataType.MultilineText)]
         [DisplayName("What are the Current Courses you are taking?")]
         public string CurrentCourses { get; set; }
-        [DisplayName("Personal Quualties Essay.  Must be up to 500 words.")]
+        [DataType(DataType.MultilineText)]
+        [DisplayName("Personal Qualties Essay.  Must be up to 500 words.")]
         public string PersonalQualties { get; set; }
-        [DisplayName("Nursing or Health Care related experience")]
+        [DataType(DataType.MultilineText)]
+        [DisplayName("Nursing or Health Care related experience.")]
         public string HealthCare { get; set; }
         [DisplayName("Have you ever been arrested for, charged with, or convicted of any crime other than a minor traffic violation?")]
         public bool Crimes { get; set; }
@@ -56,6 +60,7 @@ namespace CIS420CON.Models
         public bool Harassment { get; set; }
         [DisplayName("Have you ever been subject to disciplinary or legal action related to use of drugs, including alcohol?")]
         public bool DrugsOrAlcohol { get; set; }
+        [DataType(DataType.MultilineText)]
         [DisplayName("If you answered YES to any question(s) above, please provide an explanation below.")]
         public string DrugsOrAlcoholEssay { get; set; }
         [DisplayName("I hereby declare that the information furnished above is completed and accurate to the best of my knowledge. I also authorize the release of information from any agency or individuals, who may have additional information on me.")]

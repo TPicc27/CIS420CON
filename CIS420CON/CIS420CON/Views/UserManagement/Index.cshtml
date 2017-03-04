@@ -35,7 +35,7 @@
                         <li><a href="#"> Edit Profile</a></li>
                         <li><a href="#"> Change Password</a></li>
                         <li class="divider"></li>
-                        <li><a href="~/Controllers/AdminController.cs/Logoff"> Logout</a></li>
+                        <li><a href="http://cis420.net/Home/Index"> Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -74,8 +74,8 @@
                     <div class="col-sm-12 col-md-12 well" id="content">
                       <h1>Manage Users</h1>
                         @{ var list = Model.ToList();
-            for (int i = 0; i < list.Count; i++)
-            {
+                             for (int i = 0; i < list.Count; i++)
+                              {
                                 <div class="col-md-12">
                                     <div class="col-md-6"><b>User Name</b></div>
                                     <div class="col-md-6"><b>Roles</b></div>
@@ -85,14 +85,14 @@
                                     <div class="col-md-4">
                                         @foreach (var user in Model)
                                         {
-                                             foreach (var role in user.Roles)
-                                             {
-                                                for (int r = 0; r < user.Roles.Count; r++)
+                                            foreach (var role in user.Roles)
+                                            { 
+                                                 for (int r = 0; r < user.Roles.Count; r++)
                                                  {
                                                     @Html.DisplayFor(m => m[i].Roles[r].RoleName)
                                                  }
 
-                                              }
+                                            }
                                         }
                                     </div>
                                     <div class="col-md-4">

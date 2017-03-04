@@ -407,6 +407,7 @@
     <Content Include="Views\UDApplication\Details.cshtml" />
     <Content Include="Views\UDApplication\Edit.cshtml" />
     <Content Include="Views\UDApplication\Index.cshtml" />
+    <Content Include="Views\Advisor\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
