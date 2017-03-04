@@ -40,6 +40,11 @@ namespace CIS420CON.Controllers
         {
             return View();
         }
+
+        public ActionResult Search()
+        {
+            return View();
+        }
         // GET: Advisor/Details/5
         public ActionResult Details(int? id)
         {
