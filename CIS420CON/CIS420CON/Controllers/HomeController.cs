@@ -16,16 +16,35 @@ namespace CIS420CON.Controllers
         {
             return View();
         }
-        public PartialViewResult getLoginList()
+
+        public ActionResult StudentHome()
         {
-            var students = _db.Students.FirstOrDefault();
-            return PartialView("_LoginPartial", new LoginViewModel());
-        }
-        public PartialViewResult getRegisterList()
-        {
-            var students = _db.Students.FirstOrDefault();
-            return PartialView("_RegisterPartial", new RegisterViewModel());
+            return View();
         }
 
+        public ActionResult ClinicalCompliance()
+        {
+            return View();
+        }
+
+        public ActionResult ProgramofStudy()
+        {
+            return View();
+        }
+
+        public ActionResult Alerts()
+        {
+            return View();
+        }
+
+        public ActionResult Advising()
+        {
+            return View();
+        }
+
+        public ActionResult StudentCalendar()
+        {
+            return View();
+        }
     }
 }

@@ -17,9 +17,33 @@ namespace CIS420CON.Controllers
         // GET: Advisor
         public ActionResult Home()
         {
-            return View(db.Advisors.ToList());
+            return View();
         }
 
+        public ActionResult AdvisorCalendar()
+        {
+            return View();
+        }
+
+        public ActionResult StudentRecords()
+        {
+            return View();
+        }
+
+        public ActionResult Reports()
+        {
+            return View();
+        }
+
+        public ActionResult CRM()
+        {
+            return View();
+        }
+
+        public ActionResult AdvisorSearch()
+        {
+            return View();
+        }
         // GET: Advisor/Details/5
         public ActionResult Details(int? id)
         {
