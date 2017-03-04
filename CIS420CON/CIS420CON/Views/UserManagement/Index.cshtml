@@ -2,36 +2,115 @@
 @{
     ViewBag.Title = "Index";
 }
+<head>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div id="throbber" style="display:none; min-height:120px;"></div>
+    <div id="noty-holder"></div>
+    <div id="wrapper">
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="[ navbar-brand ]" href="http://hogs.cis420.net">
+                    <img src="~/Content/Images/Navbar Logo.png" class="img-responsive" />
+                </a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li>
 
-@{ var list = Model.ToList();
-    for (int i = 0; i < list.Count; i++)
-    {
-        <div class="col-md-12">
-            <div class="col-md-6"><b>User Name</b></div>
-            <div class="col-md-6"><b>Roles</b></div>
-        </div>
-        <div class="col-md-12">
-            <div class="col-md-4">@Html.DisplayFor(modelItem => list[i].UserName)</div>
-            <div class="col-md-4">
-                @foreach (var user in Model)
-                {
-                    foreach (var role in user.Roles)
-                    {
-                        for (int r = 0; r < user.Roles.Count; r++)
-                        {
-                            @Html.DisplayFor(m => m[i].Roles[r].RoleName)
+                </li>
+                <li class="dropdown">
+                    <a href="#" style="color:rgb(0,0,0)" class="dropdown-toggle" data-toggle="dropdown">Hello, Admin ▼</a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"> Edit Profile</a></li>
+                        <li><a href="#"> Change Password</a></li>
+                        <li class="divider"></li>
+                        <li><a href="http://cis420.net/Home/Index"> Logout</a></li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li>
+                        <a href="http://hogs.cis420.net/Admin/Home"> Home </a>
+                    </li>
+                    <li>
+                        <a href="http://hogs.cis420.net/Admin/Calendar"> Calendar </a>
+                    </li>
+                    <li>
+                        <a href="http://hogs.cis420.net/Admin/AdminReports"> Reports </a>
+                    </li>
+                    <li>
+                        <a href="http://hogs.cis420.net/UserManagement/Index"> Manage Users </a>
+                    </li>
+                    <li>
+                        <a href="http://hogs.cis420.net/Admin/ImportDocs"> Import Documents</a>
+                    </li>
+                    <li>
+                        <a href="http://hogs.cis420.net/Admin/ExportDocs"> Export Documents</a>
+                    </li>
+                    <li>
+                        <a href="http://hogs.cis420.net/Admin/ManageAlerts"> Manage Alerts </a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+        <div id="page-wrapper">
+            <div class="container-fluid">
+                <!-- Page Heading -->
+                <div class="row" id="main">
+                    <div class="col-sm-12 col-md-12 well" id="content">
+                      <h1>Manage Users</h1>
+                        @{ var list = Model.ToList();
+                             for (int i = 0; i < list.Count; i++)
+                              {
+                                <div class="col-md-12">
+                                    <div class="col-md-6"><b>User Name</b></div>
+                                    <div class="col-md-6"><b>Roles</b></div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="col-md-4">@Html.DisplayFor(modelItem => list[i].UserName)</div>
+                                    <div class="col-md-4">
+                                        @foreach (var user in Model)
+                                        {
+                                            foreach (var role in user.Roles)
+                                            { 
+                                                 for (int r = 0; r < user.Roles.Count; r++)
+                                                 {
+                                                    @Html.DisplayFor(m => m[i].Roles[r].RoleName)
+                                                 }
+
+                                            }
+                                        }
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="@Url.Action("Edit", "UserManagement", new {@id = list[i].Id})">Edit</a>
+                                    </div>
+                                </div>
+                            }
                         }
 
-                    }
-                }
+                        <br />
+                        <br />
+                        <br />
+                    </div>
+                </div>
+                <!-- /.row -->
             </div>
-            <div class="col-md-4">
-                <a href="@Url.Action("Edit", "UserManagement", new {@id = list[i].Id})">Edit</a>
-            </div>
+            <!-- /.container-fluid -->
         </div>
-    }
-}
-
-<br />
-<br />
-<br />
+        <!-- /#page-wrapper -->
+    </div><!-- /#wrapper -->
+</body>

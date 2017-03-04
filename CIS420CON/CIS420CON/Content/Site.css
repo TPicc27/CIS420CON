@@ -983,3 +983,6 @@ ul {
     padding: 5px 15px;
 }
 
+#fg-base-edit textarea {
+    width: 98%;
+}

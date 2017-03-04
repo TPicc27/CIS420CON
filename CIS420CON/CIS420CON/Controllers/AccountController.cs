@@ -57,7 +57,9 @@ namespace CIS420CON.Controllers
         [AllowAnonymous]
         public ActionResult Login(string returnUrl)
         {
-            ViewBag.ReturnUrl = returnUrl;
+            
+            ViewBag.ReturnUrl = "/Home/Index";
+           // ViewBag.ReturnUrl = returnUrl;
             return View();
         }
 

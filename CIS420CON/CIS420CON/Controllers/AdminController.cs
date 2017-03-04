@@ -34,15 +34,7 @@ namespace CIS420CON.Controllers
             return View();
         }
 
-        public ActionResult AdminReports()
-        {
-            return View();
-        }
 
-        public ActionResult ManageUsers()
-        {
-            return View();
-        }
 
         [HttpPost]
         public ActionResult ImportDocs(HttpPostedFileBase file)
@@ -57,16 +49,15 @@ namespace CIS420CON.Controllers
                 return RedirectToAction("ImportDocs");
             }
             // redirect back to the index action to show the form once again
-            return View("ImportDocs");
+            return View();
         }
-
-
+   
         public ActionResult ExportDocs()
         {
             return View();
         }
 
-
+       
 
         // GET: Admin/Details/5
         public ActionResult Details(int? id)

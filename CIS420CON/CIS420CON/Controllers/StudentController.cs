@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data;
+﻿using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Net;
-using System.Web;
+using System.Net.Mail;
 using System.Web.Mvc;
 using CIS420CON.Models;
+using CIS420CON.Models.ViewModels;
 
 namespace CIS420CON.Controllers
 {
+    [Authorize]
     public class StudentController : Controller
     {
         private ApplicationDbContext db = new ApplicationDbContext();
@@ -17,7 +17,15 @@ namespace CIS420CON.Controllers
         // GET: Student
         public ActionResult Index()
         {
-            return View(db.Students.ToList());
+            var students = db.Students.Select(s => new StudentIndexViewModel()
+            {
+                Id = s.Id,
+                FirstName = s.FirstName,
+                LastName = s.LastName,
+                EnrollmentDate = s.EnrollmentDate
+            });
+
+            return View(students);
         }
 
         // GET: Student/Details/5
@@ -44,18 +52,29 @@ namespace CIS420CON.Controllers
         // POST: Student/Create
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles = "Advisors")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,LastName,FirstName,MiddleName,Address,City,State,ZipCode,Email,PhoneNumber,EnrollmentDate,GPA,Standing,HelpGraduated,CampusId")] Student student)
+        public ActionResult Create(StudentCreateViewModel vm)
         {
             if (ModelState.IsValid)
             {
+                var student = new Student()
+                {
+                    Address = vm.Address,
+                    City = vm.City,
+                    EnrollmentDate = vm.EnrollmentDate,
+                    FirstName = vm.FirstName,
+                    LastName = vm.LastName,
+                    ZipCode = vm.ZipCode.ToString(),
+                    State = vm.State
+                };
                 db.Students.Add(student);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index", "Student");
             }
 
-            return View(student);
+            return View(vm);
         }
 
         // GET: Student/Edit/5
@@ -73,20 +92,27 @@ namespace CIS420CON.Controllers
             return View(student);
         }
 
-        // POST: Student/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [Authorize(Roles ="Advisors")]
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,LastName,FirstName,MiddleName,Address,City,State,ZipCode,Email,PhoneNumber,EnrollmentDate, GPA, Standing,HelpGraduated,CampusId")] Student student)
+        public ActionResult Edit(StudentIndexViewModel vm)
         {
             if (ModelState.IsValid)
             {
+                var student = db.Students.FirstOrDefault(s => s.Id == vm.Id);
+
+                if (student != null)
+                {
+                    student.FirstName = vm.FirstName;
+                    student.LastName = vm.LastName;
+                    student.EnrollmentDate = vm.EnrollmentDate;
+                }
+
                 db.Entry(student).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            return View(student);
+            return View(vm);
         }
 
         // GET: Student/Delete/5
@@ -104,7 +130,7 @@ namespace CIS420CON.Controllers
             return View(student);
         }
 
-        // POST: Student/Delete/5
+        [Authorize(Roles ="Advisor")]
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
@@ -112,7 +138,7 @@ namespace CIS420CON.Controllers
             Student student = db.Students.Find(id);
             db.Students.Remove(student);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("Index", "Student");
         }
 
         protected override void Dispose(bool disposing)
@@ -122,6 +148,11 @@ namespace CIS420CON.Controllers
                 db.Dispose();
             }
             base.Dispose(disposing);
+        }
+
+        public ActionResult StudentReports()
+        {
+            return View();
         }
 
         //GPA Report for 4.0
@@ -168,6 +199,8 @@ namespace CIS420CON.Controllers
 
             return View("Index", students);
         }
+
+
 
     }
 }

@@ -30,10 +30,6 @@ namespace CIS420CON.Controllers
             return View();
         }
 
-        public ActionResult Reports()
-        {
-            return View();
-        }
 
         public ActionResult CRM()
         {
@@ -41,6 +37,11 @@ namespace CIS420CON.Controllers
         }
 
         public ActionResult AdvisorSearch()
+        {
+            return View();
+        }
+
+        public ActionResult Search()
         {
             return View();
         }
