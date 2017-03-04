@@ -1,4 +1,4 @@
-﻿
+﻿@model CIS420CON.Models.ViewModels.HomeIndexViewModel
 @{
     ViewBag.Title = "StudentHome";
 }
@@ -74,6 +74,47 @@
                 <div class="row" id="main">
                     <div class="col-sm-12 col-md-12 well" id="content">
                         <h1>Welcome Student!</h1>
+                        <div class="panel panel-primary" style="margin-top:30px; max-width: 700px;">
+                        <div class="panel-body">
+                            <div class="row">
+                                
+                                <div class="col-md-8">
+                                    <div class="panel-primary">
+                                        <div class="panel-heading" style="background-color: red">
+                                            <h4>Student Record</h4>
+                                        </div>
+                                        <div class="panel-body">
+                                            @Html.Partial("StudentPartial", Model.StudentsList)
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                            
+                            </div>
+                        <p style="text-align:right; position: relative; top: -200px; left: -55px;">  Upper Division Application:</p>
+                       <p style="text-align:right; position: relative; top: -200px; left: -55px; right: -30px;"> <a href="http://hogs.cis420.net/UDApplication/Create" style="color:red;">Link to Upper Division Application</a></p>
+                        <div class="panel panel-primary" style="margin-top:30px; max-width: 700px;">
+                        <div class="panel-body">
+                            <div class="row">
+                            <div class="col-md-8">
+
+                                <div class="panel-primary">
+                                    
+                                    <div class="panel-heading" style="background-color: red">
+                                        
+                                        <h4>To-Do List </h4>
+                                        
+                                    </div>
+                                    <div class="panel-body">
+                                        @Html.Partial("TodosPartial", Model.TodosList)
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        </div>
+                        </div>
                     </div>
                 </div>
                 <!-- /.row -->

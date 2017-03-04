@@ -1,58 +1,306 @@
 ﻿@model CIS420CON.Models.RegisterViewModel
-@{
-    ViewBag.Title = "Register";
-}
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>School of Nursing - @ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="[ navbar navbar-fixed-top ][ navbar-bootsnipp animate ]" role="navigation">
+        <div class="[ container ]">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="[ navbar-header ]">
+                <button type="button" class="[ navbar-toggle ]" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="[ sr-only ]">Toggle navigation</span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                    <span class="[ icon-bar ]"></span>
+                </button>
+                <div class="[ animbrand ]">
+                    <a class="[ navbar-brand ]" href="http://hogs.cis420.net"><img src="~/Content/Images/Navbar Logo.png" class="img-responsive" /></a>
+                </div>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="[ collapse navbar-collapse ]" id="bs-example-navbar-collapse-1">
+                <ul class="[ nav navbar-nav navbar-right ]">
+                    <li class="[ visible-xs ]">
+                        <form action="http://bootsnipp.com/search" method="GET" role="search">
+                            <div class="[ input-group ]">
+                                <input type="text" class="[ form-control ]" name="q" placeholder="Search for snippets">
+                                <span class="[ input-group-btn ]">
+                                    <button class="[ btn btn-primary ]" type="submit"><span class="[ glyphicon glyphicon-search ]"></span></button>
+                                    <button class="[ btn btn-danger ]" type="reset"><span class="[ glyphicon glyphicon-remove ]"></span></button>
+                                </span>
+                            </div>
+                        </form>
+                    <li>
+                        <a class="paypal-fit">
+                            <form name="_xclick" action="https://www.paypal.com/uk/cgi-bin/webscr" method="post">
+                                <input type="hidden" name="cmd" value="_xclick">
+                                <input type="hidden" name="business" value="me@mybiz.co.uk">
+                                <input type="hidden" name="item_name" value="Team In Training">
+                                <input type="hidden" name="currency_code" value="GBP">
+                                <input type="hidden" name="amount" value="25.00">
+                                <input type="image" src="http://www.paypal.com/en_GB/i/btn/x-click-butcc-donate.gif" border="0" name="submit"
+                                       alt="Make payments with PayPal - it's fast, free and secure!">
+                            </form>
+                        </a>
+                    </li>
+                    <li>
+                        <!--Facebook Logo to CON Facebook account-->
+                        <a target="_blank" title="find us on Facebook" href="https://www.facebook.com/UniversityOfLouisvilleSchoolOfNursing/">
+                            <img alt="follow me on facebook" src="//login.create.net/images/icons/user/facebook_40x40.png" border="0">
+                        </a>
+                    </li>
+                    <li>
+                        <!--Twitter Logo to CON Twitter handle-->
+                        <a target="_blank" title="follow me on twitter" href="https://twitter.com/uofl_son">
+                            <img alt="follow me on twitter" src="//login.create.net/images/icons/user/twitter_40x40.png" border="0">
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</body>
+<!-- Login plugin-->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css">
+    <<div class="login-wrap">
+    <div class="login-wrap-2">
+        <div class="login-signup">
+            <div class="login-header">
+                <div class="row">
+                    <div class="col-sm-8 col-xs-12">
+                        <div class="login-details">
+                            <ul class="nav nav-tabs navbar-right">
+                                <li class="active"><a data-toggle="tab" href="http://hogs.cis420.net/Account/Register">Register</a></li>
+                                <li><a data-toggle="tab" href="http://hogs.cis420.net/Account/Login">Login</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="tab-content">
+                <div class="tab-pane">
+                    <div class="login-inner">
+                        <div class="title">
+                            <h1>Welcome</h1>
+                        </div>
+                        <div class="login-form">
+                            @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                            {
+                                @Html.AntiForgeryToken()
+                                <h6 class="text-center">Create Account</h6>
+                                    <hr />
+                                    @Html.ValidationSummary("", new { @class = "text-danger" })
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
+                                        <div class="col-md-10">
+                                            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
+                                        <div class="col-md-10">
+                                            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Role, new { @class = "col-md-2 control-label" })
+                                        <div class="col-md-10">
+                                            @Html.TextBoxFor(m => m.Role, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
+                                        <div class="col-md-10">
+                                            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                                        <div class="col-md-10">
+                                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
+                                        <div class="col-md-10">
+                                            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="col-md-offset-2 col-md-10">
+                                            <input type="submit" class="btn btn-default" value="Register" />
+                                        </div>
+                                    </div>
+                            }
+                        </div>
+                    </div>
+                </div>
+
+                <div >
+                    <div>
+                        <div>
+                            <h1>Welcome <span>back!</span></h1>
+                        </div>
+                        <div class="login-form">
+                            <div class="form-details">
+                                <div class="form-group">
+                                    <label for="email">Email</label>
+                                    <div class="col-md-9">
+                                        <input type="text" name="Email" value="Email">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="Password">Password</label>
+                                    <div class="col-md-9">
+                                        <input type="text" name="Password" value="Password">
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <div class="col-md-offset-3 col-md-10">
+                                        <div class="checkbox">
+                                            <label for="RememberMe">Remember</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <a href="http://hogs.cis420.net//Account/ForgotPassword" class="forgot-password">Forgot Password?</a>
+                                </div>
+                            </div>
+                            <button type="submit" class="form-btn" onsubmit="">Login</button>
+                            
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
 
 
-@using (Html.BeginForm("Register", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-{
-    @Html.AntiForgeryToken()
-    <h6 style="text-align: center">Create Account</h6>
-    <hr />
-    @Html.ValidationSummary("", new { @class = "text-danger" })
-    <div class="form-group">
-        @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control" })
+<!-- Carousel -->
+<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+    <!-- Overlay -->
+    <div class="overlay">
+    </div>
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#bs-carousel" data-slide-to="1"></li>
+        <li data-target="#bs-carousel" data-slide-to="2"></li>
+        <li data-target="#bs-carousel" data-slide-to="3"></li>
+        <li data-target="#bs-carousel" data-slide-to="4"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item slides active">
+            <div class="slide-1"></div>
+            <div class="hero">
+            </div>
+        </div>
+        <div class="item slides">
+            <div class="slide-2"></div>
+            <div class="hero">
+            </div>
+        </div>
+        <div class="item slides">
+            <div class="slide-3"></div>
+        </div>
+        <div class="item slides">
+            <div class="slide-4"></div>
+            <div class="hero">
+            </div>
+        </div>
+        <div class="item slides">
+            <div class="slide-5"></div>
+            <div class="hero">
+            </div>
         </div>
     </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.LastName, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Role, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Role, new { @class = "form-control" })
-        </div>
-    </div>
-     <div class="form-group">
-        @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        @Html.LabelFor(m => m.ConfirmPassword, new { @class = "col-md-2 control-label" })
-        <div class="col-md-10">
-            @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
-        </div>
-    </div>
-    <div class="form-group">
-        <div class="col-md-offset-2 col-md-10">
-            <input type="submit" class="btn btn-default" value="Register" />
-        </div>
-    </div>
-}
+</div>
+<!--footer-->
+<footer class="footer1">
+    <div class="container">
+        <div class="row">
+            <!-- row -->
+            <div class="col-lg-2 col-md-3">
+                <!-- widgets column left -->
+                <ul class="list-unstyled clear-margins">
+                    <!-- widgets -->
+                    <li class="widget-container widget_nav_menu">
+                        <h1 style="color: #898989; font-size: 20px; font-weight: 300; line-height: 1;
+                         position: relative; text-transform: uppercase; font-family: 'Fjalla One', sans-serif;
+                         margin-top: 0; margin-right: 0; margin-bottom: 25px; margin-left: 0; padding-left: 28px;">
+                            Directions
+                        </h1>
+                        <!-- widgets list -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.329353668357!2d-85.75114148465826!3d38.24866677757718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886972b70ea30f9b%3A0x6e2ae03015f84c2a!2sSchool+of+Nursing!5e0!3m2!1sen!2sus!4v1488068603421" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </ul>
+                </li>
+                </ul>
+            </div><!-- widgets column left end -->
+            <div style="position: relative; right: -800px;">
+                <!-- widgets column left -->
+                <ul class="list-unstyled clear-margins">
+                    <!-- widgets -->
+                    <li class="widget-container widget_recent_news">
+                        <!-- widgets list -->
 
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+                        <h1 style="color: #898989; font-size: 20px; font-weight: 300; line-height: 1;
+                         position: relative; text-transform: uppercase; font-family: 'Fjalla One', sans-serif;
+                         margin-top: 0; margin-right: 0; margin-bottom: 25px; margin-left: 0;padding-left: 28px;">
+                            Contact Detail
+                        </h1>
+
+                        <div class="footerp">
+
+                            <p>
+                                <b>Email:</b> <a class="email" href="mailto:" karen.rose@louisville.edu" style="color: rgb(255, 0, 0)">
+                                    karen.rose@louisville.edu
+                                </a>
+                            </p>
+                            <p><b>School Number:</b> 1-877-81-NURSE</p>
+                            <p><b>Cell Number:</b> 502-852-5825</p>
+
+                        </div>
+
+                        @*<div class="social-icons">
+
+                            <ul class="nomargin">*@
+
+                        @*<a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                            <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                            <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                            <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>*@
+
+                </ul>
+            </div>
+            </li>
+            </ul>
+        </div>
+    </div>
+</footer>
+<!--header-->
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="copyright">
+                    © 2017 Nothing But Net
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="design">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
