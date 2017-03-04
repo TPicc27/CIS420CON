@@ -6,7 +6,7 @@
     @Styles.Render("~/Content/css")
     @Styles.Render("~/bundles/modernizr")
 </head>
-<body>
+@*<body>
     <div id="throbber" style="display:none; min-height:120px;"></div>
     <div id="noty-holder"></div>
     <div id="wrapper">
@@ -35,7 +35,7 @@
                         <li><a href="#"> Edit Profile</a></li>
                         <li><a href="#"> Change Password</a></li>
                         <li class="divider"></li>
-                        <li><a href="http://cis420.net/Home/Index"> Logout</a></li>
+                        <li><a href=javascript:document.getElementByid('logoutForm').submit()> Logout</a></li>
                     </ul>
                 </li>
             </ul>
@@ -66,7 +66,7 @@
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
-        </nav>
+        </nav>*@
         <div id="page-wrapper">
             <div class="container-fluid">
                 <!-- Page Heading -->
@@ -82,19 +82,20 @@
                                 </div>
                                 <div class="col-md-12">
                                     <div class="col-md-4">@Html.DisplayFor(modelItem => list[i].UserName)</div>
-                                    <div class="col-md-4">
-                                        @foreach (var user in Model)
-                                        {
-                                            foreach (var role in user.Roles)
-                                            { 
-                                                 for (int r = 0; r < user.Roles.Count; r++)
-                                                 {
-                                                    @Html.DisplayFor(m => m[i].Roles[r].RoleName)
-                                                 }
+                                    @*<div class="col-md-4">@Html.DisplayFor(modelItem => list[i].Roles)</div>*@
 
-                                            }
+                                    <div>
+                                        @foreach (var role in list[i].Roles)
+                                        {
+                                            <p>@role.RoleName</p>
                                         }
                                     </div>
+                                    @*<div class="col-md-4">
+                                        @foreach (var role in Model[i].Roles)
+                                        {
+                                            <p>@role.RoleName</p>
+                                        }
+                                    </div>*@
                                     <div class="col-md-4">
                                         <a href="@Url.Action("Edit", "UserManagement", new {@id = list[i].Id})">Edit</a>
                                     </div>

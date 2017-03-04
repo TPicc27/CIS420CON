@@ -1,16 +1,130 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Developer Univeristy</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
 </head>
 <body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Developer University", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+                <div class="navbar-collapse collapse">
+                    <ul class="nav navbar-nav">
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown" style="margin-top: 10px; margin-right: 10px;">
+                                    Student
+                                </button>
+                                <ul class="dropdown-menu">
+                                    <li>@Html.ActionLink("Calendar", "Index", "Event")</li>
+                                    <li>@Html.ActionLink("Programs", "Index", "Program")</li>
+                                    <li>@Html.ActionLink("Campuses", "Index", "Campus")</li>
+                                    <li>@Html.ActionLink("Courses", "Index", "Course")</li>
+                                    <li>@Html.ActionLink("Partial Views Example", "PartialExample", "Home")</li>
+                                    <li>@Html.ActionLink("DocumentManagement", "DocumentManagement", "Home")</li>
+                                    <li>@Html.ActionLink("Contact Us", "Contact", "Home")</li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                    @Html.Partial("_LoginPartial")
+                </div>
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
 
+                    @{
+                        if(User.IsInRole("Admin") || User.IsInRole("SuperAdmin"))
+                    {
+                            <li>
+                                @Html.ActionLink("Home", "Home", "Admin")
+                            </li>
+                            <li>
+                                <a href="http://hogs.cis420.net/Admin/Calendar"> Calendar </a>
+                            </li>
+                            <li>
+                                <a href="http://hogs.cis420.net/Admin/AdminReports"> Reports </a>
+                            </li>
+                            <li>
+                                @Html.ActionLink("UserManagement","Index","UserManagement")
+                            </li>
+                            <li>
+                                <a href="http://hogs.cis420.net/Admin/ManageAlerts"> Manage Alerts </a>
+                            </li>
+                        }
+                    }
+                    
+                    @{
+                        if (User.IsInRole("Advisor"))
+                        {
+                            <li>
+                                @Html.ActionLink("Home", "Home", "Advisor")
+                            </li>
+                            <li>
+                                <a href="http://hogs.cis420.net/Advisor/AdvisorCalendar"> Calendar </a>
+                            </li>
+                            <li>
+                                <a href="http://hogs.cis420.net/Advisor/StudentRecords"> Student Records </a>
+                            </li>
+                            <li>
+                                <a href="http://hogs.cis420.net/Advisor/Reports"> Reports </a>
+                            </li>
+                            <li>
+                                <a href="http://hogs.cis420.net/Student/Index"> CRM </a>
+                            </li>
+                            <li>
+                                <a href="http://hogs.cis420.net/Advisor/Search"> Serach </a>
+                            </li>
+                        }
+                    }
+                    
+                    @{
+                        if (User.IsInRole("Student"))
+                        {
+                            <li>
+                              @Html.ActionLink("StudentHome","StudentHome","Home")
+                            </li>
+                            <li>
+                                <a href="http://hogs.cis420.net/Home/ClinicalCompliance"> Clinical Compliance </a>
+                            </li>
+                            <li>
+                                <a href="http://hogs.cis420.net/Home/ProgramofStudy"> Program of Study </a>
+                            </li>
+                            <li>
+                                <a href="http://hogs.cis420.net/Home/Alerts"> Alerts </a>
+                            </li>
+                            <li>
+                                <a href="http://hogs.cis420.net/Home/Advising"> Advising </a>
+                            </li>
+                            <li>
+                                <a href="http://hogs.cis420.net/Home/StudentCalendar"> Calendar </a>
+                            </li>
+                        }
+                    }
+                </ul>
+            </div>
+        </div>
+    </div>
     <div class="container body-content">
         @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Developer University</p>
+        </footer>
     </div>
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    <script src="~/Scripts/Main.js"></script>
     @RenderSection("scripts", required: false)
 </body>
 </html>

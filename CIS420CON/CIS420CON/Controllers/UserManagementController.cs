@@ -12,7 +12,7 @@ namespace CIS420CON.Controllers
         readonly ApplicationDbContext _db = new ApplicationDbContext();
 
 
-        [Authorize(Roles = "Admin")]
+        //[Authorize(Roles = "Admin")]
         public ActionResult Index()
         {
             var users = _db.Users;

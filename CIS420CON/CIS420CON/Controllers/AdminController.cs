@@ -35,30 +35,6 @@ namespace CIS420CON.Controllers
         }
 
 
-
-        [HttpPost]
-        public ActionResult ImportDocs(HttpPostedFileBase file)
-        {
-            if (file != null && file.ContentLength > 0)
-            {
-                // extract only the filename
-                var fileName = Path.GetFileName(file.FileName);
-                // store the file inside ~/App_Data/uploads folder
-                var path = Path.Combine(Server.MapPath("~/App_Data/uploads"), fileName);
-                file.SaveAs(path);
-                return RedirectToAction("ImportDocs");
-            }
-            // redirect back to the index action to show the form once again
-            return View();
-        }
-   
-        public ActionResult ExportDocs()
-        {
-            return View();
-        }
-
-
-
         // GET: Admin/Details/5
         public ActionResult Details(int? id)
         {

@@ -76,8 +76,27 @@ namespace CIS420CON
                 {
                     var result1 = UserManager.AddToRole(user.Id, "Advisors");
                 }
-
             }
-        }
+                if (!roleManager.RoleExists("Student"))
+                {
+                    var role = new IdentityRole();
+                    role.Name = "Student";
+                    roleManager.Create(role);
+
+                    var user = new ApplicationUser();
+                    user.UserName = "student01@gmail.com";
+                    user.Email = "student01@gmail.com";
+
+                    string userPWD = "card010";
+                    var chkUser = UserManager.Create(user, userPWD);
+
+                    if (chkUser.Succeeded)
+                    {
+                        var result1 = UserManager.AddToRole(user.Id, "Student");
+                    }
+
+
+                }
+            }
     }
 }
