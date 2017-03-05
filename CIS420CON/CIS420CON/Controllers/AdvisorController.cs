@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using CIS420CON.Models;
+using CIS420CON.Models.ViewModels;
 
 namespace CIS420CON.Controllers
 {
@@ -19,6 +20,7 @@ namespace CIS420CON.Controllers
         {
             return View();
         }
+
 
         public ActionResult AdvisorCalendar()
         {
@@ -45,6 +47,20 @@ namespace CIS420CON.Controllers
         {
             return View();
         }
+
+        public ActionResult Alerts()
+        {
+            var viewModel = new AdvisorIndexViewModel()
+            {
+                //select only non compiant students from db
+                NCStudentsList = db.Students.Where(d => d.Is_Compliant == false),
+                //need a way to filter events, currently displays first 999
+                AlertList = db.Events.Take(999)
+            };
+
+            return View(viewModel);
+        }
+
         // GET: Advisor/Details/5
         public ActionResult Details(int? id)
         {

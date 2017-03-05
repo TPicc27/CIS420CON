@@ -1,6 +1,6 @@
-﻿
+﻿@model CIS420CON.Models.ViewModels.AdvisorIndexViewModel
 @{
-    ViewBag.Title = "Advising";
+    ViewBag.Title = "Alerts";
 }
 <head>
     @Styles.Render("~/Content/css")
@@ -29,14 +29,10 @@
                 <li>
                 </li>
                 <li class="dropdown">
-                    <a href="#" style="color: rgb(0,0,0)" class="dropdown-toggle" data-toggle="dropdown">
-                        Hello, Student ▼
-                    </a>
+                    <a href="#" style="color: rgb(0,0,0)" class="dropdown-toggle" data-toggle="dropdown">Hello, Advisor ▼</a>
                     <ul class="dropdown-menu">
                         <li><a href="#"> Edit Profile</a></li>
-                        <li>
-                            <a href="#"> Change Password</a>
-                        </li>
+                        <li><a href="#"> Change Password</a></li>
                         <li class="divider"></li>
                         <li><a href="~/Controllers/AdminController.cs/Logoff"> Logout</a></li>
                     </ul>
@@ -46,22 +42,25 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
                     <li>
-                        <a href="http://hogs.cis420.net/Home/StudentHome"> Home </a>
+                        <a href="http://hogs.cis420.net/Advisor/Home"> Home </a>
                     </li>
                     <li>
-                        <a href="http://hogs.cis420.net/Home/ClinicalCompliance"> Clinical Compliance </a>
+                        <a href="http://hogs.cis420.net/Advisor/AdvisorCalendar"> Calendar </a>
                     </li>
                     <li>
-                        <a href="http://hogs.cis420.net/Home/ProgramofStudy"> Program of Study </a>
+                        <a href="http://hogs.cis420.net/Advisor/StudentRecords"> Student Records </a>
                     </li>
                     <li>
-                        <a href="http://hogs.cis420.net/Home/Alerts"> Alerts </a>
+                        <a href="http://hogs.cis420.net/Advisor/Reports"> Reports </a>
                     </li>
                     <li>
-                        <a href="http://hogs.cis420.net/Home/Advising"> Advising </a>
+                        <a href="http://hogs.cis420.net/Advisor/Alerts"> Alerts </a>
                     </li>
                     <li>
-                        <a href="http://hogs.cis420.net/Home/StudentCalendar"> Calendar </a>
+                        <a href="http://hogs.cis420.net/Student/Index"> CRM </a>
+                    </li>
+                    <li>
+                        <a href="http://hogs.cis420.net/Advisor/Search"> Search </a>
                     </li>
                 </ul>
             </div>
@@ -72,24 +71,23 @@
                 <!-- Page Heading -->
                 <div class="row" id="main">
                     <div class="col-sm-12 col-md-12 well" id="content">
-                        <h1>Advising</h1>
+                        <h1>Alerts</h1>
                     </div>
-                    <div class="col-sm-12 col-md-12 well">
-                        <h1 @ViewBag.FullName
-                        <br />
-                        @ViewBag.Title
-                        <br />
-                        @ViewBag.Description
-                        <br />
-                        @ViewBag.WhereWhen
-                        <br />
-                        @ViewBag.Email
+                    <div class="panel-body">
+                        @Html.Partial("NCStudentsPartial", Model.NCStudentsList)
                     </div>
                 </div>
-                <!-- /.row -->
             </div>
-            <!-- /.container-fluid -->
+            <div class="col-md-6">
+                <div class="panel-primary">
+                    <div class="panel-heading">
+                        <h4>Events</h4>
+                    </div>
+                    <div class="panel-body">
+                        @Html.Partial("AlertPartial", Model.AlertList)
+                    </div>
+                </div>
+            </div>
         </div>
-        <!-- /#page-wrapper -->
-    </div><!-- /#wrapper -->
+    </div>
 </body>

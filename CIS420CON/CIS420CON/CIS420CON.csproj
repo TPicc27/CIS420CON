@@ -224,6 +224,7 @@
     <Compile Include="Models\Program.cs" />
     <Compile Include="Models\Student.cs" />
     <Compile Include="Models\UDApplication.cs" />
+    <Compile Include="Models\ViewModels\AdvisorIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\EditUserViewModel.cs" />
     <Compile Include="Models\ViewModels\HomeIndexViewModel.cs" />
     <Compile Include="Models\ViewModels\ListUserViewModel.cs" />
@@ -402,6 +403,10 @@
     <Content Include="Views\UDApplication\Edit.cshtml" />
     <Content Include="Views\UDApplication\Index.cshtml" />
     <Content Include="Views\Advisor\Search.cshtml" />
+    <Content Include="Views\Home\AlertPartial.cshtml" />
+    <Content Include="Views\Advisor\NCStudentsPartial.cshtml" />
+    <Content Include="Views\Advisor\AlertPartial.cshtml" />
+    <Content Include="Views\Advisor\Alerts.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
