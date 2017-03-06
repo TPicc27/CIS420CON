@@ -73,21 +73,24 @@
                     <div class="col-sm-12 col-md-12 well" id="content">
                         <h1>Alerts</h1>
                     </div>
-                    <div class="panel-body">
-                        @Html.Partial("NCStudentsPartial", Model.NCStudentsList)
+                    <div class="col-md-6">
+                        <div class="panel-primary">
+                            <div class="panel-heading">
+                                <h4>Students Out of Compliance</h4>
+                                    @Html.Partial("NCStudentsPartial", Model.NCStudentsList)
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="panel-primary">
+                                <div class="panel-heading">
+                                    <h4>Upcoming Events for the Week</h4>
+                                </div>
+                                <div class="panel-body">
+                                    @Html.Partial("AlertPartial", Model.AlertList)
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="panel-primary">
-                    <div class="panel-heading">
-                        <h4>Events</h4>
-                    </div>
-                    <div class="panel-body">
-                        @Html.Partial("AlertPartial", Model.AlertList)
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 </body>
