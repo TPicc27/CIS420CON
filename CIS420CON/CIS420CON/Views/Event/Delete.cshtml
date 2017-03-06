@@ -59,9 +59,12 @@
             @Html.DisplayFor(model => model.IsRecruitment)
         </dd>
 
+        <a href="@Url.Action("Delete", "selectable","delete")" onclick="return confirm('Event Delete');">< style="width: 24px; width: 24px" /></a>
+
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
         <div class="form-actions no-color">
@@ -70,3 +73,5 @@
         </div>
     }
 </div>
+
+

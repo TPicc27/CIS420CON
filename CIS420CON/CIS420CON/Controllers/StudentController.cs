@@ -200,6 +200,15 @@ namespace CIS420CON.Controllers
             return View("Index", students);
         }
 
+        //All Students
+        public ActionResult AllStudentReports()
+        {
+
+            var students = db.Students.ToList();
+
+            return View("Index", students);
+        }
+
 
 
     }

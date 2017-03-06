@@ -5,12 +5,18 @@
 
 <h2>StudentReports</h2>
 
-@Html.ActionLink("Students with 4.0 GPA", "GetGpaReport1", "Student", new { gpaThreshold = 4.0M })
+<div class="panel-body" style= "border: 5px solid black">
+<div class="col-md-4">
+    @Html.ActionLink("Students with 4.0 GPA", "GetGpaReport1", "Student", new { gpaThreshold = 4.0M })
+    @Html.ActionLink("Students with over a 3.75 GPA", "GetGpaReport2", "Student", new { gpaThreshold = 3.75M })
+    @Html.ActionLink("Students with over a 3.5 GPA", "GetGpaReport3", "Student", new { gpaThreshold = 3.5M })
+    @Html.ActionLink("Students with over a 3.25 GPA", "GetGpaReport4", "Student", new { gpaThreshold = 3.25M })
+    @Html.ActionLink("Students with over a 3.0 GPA", "GetGpaReport5", "Student", new { gpaThreshold = 3.0M })
+</div>
+</div>
 
-@Html.ActionLink("Students with over a 3.75 GPA", "GetGpaReport2", "Student", new { gpaThreshold = 3.75M })
 
-@Html.ActionLink("Students with over a 3.5 GPA", "GetGpaReport3", "Student", new { gpaThreshold = 3.5M })
 
-@Html.ActionLink("Students with over a 3.25 GPA", "GetGpaReport4", "Student", new { gpaThreshold = 3.25M })
-
-@Html.ActionLink("Students with over a 3.0 GPA", "GetGpaReport5", "Student", new { gpaThreshold = 3.0M })
+<div class="col-md-4" style="margin-left: 50px;">
+@Html.ActionLink("All Students", "AllStudentReports")
+</div>

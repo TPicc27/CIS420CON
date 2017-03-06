@@ -54,10 +54,19 @@
 				$('#calendar').fullCalendar('unselect');
 			},
 
-			eventClick: function(event){
+			eventClick: function (Delete_event) {
+			    var start = $.fullCalendar.formatDate(Delete_event.start, "yyyy-MM-dd HH:mm");
+			    var end = $.fullCalendar.formatDate(Delete_event.end, "yyyy-MM-dd HH:mm");
+			    var id = Delete_event.id;
+			    var title = Delete_event.title;
+			    $("#edit_start").val(start);   //this just populates the value into my dialog form
+			    $("#edit_end").val(end);
+			    $("#edit_title").val(title);
+			    $("#edit_event_id").val(id);
+			    $("#edit_class").dialog("open");   //open the dialog
 			    
 
-			    $( "#edit_class" ).dialog({
+			    $("#edit_class").dialog({
 			        autoOpen: false,
 			        height: 300,
 			        width: 350,
@@ -67,7 +76,7 @@
 			                var event_id = $("#edit_event_id").val();
 			                $.ajax({
 			                    type:"POST",
-			                    url: @Url.Action(""),
+			                    url: '@Url.Action("Delete", "selectable","delete")',
 			                    data: "event_id=" + event_id,
 
 			                });
@@ -166,7 +175,7 @@
 
     <div id='calendar'></div>
     <button id='Delete'>Delete Events</button></p>
-
+    
     <div id="edit_class" title="Edit Class">
 
 
