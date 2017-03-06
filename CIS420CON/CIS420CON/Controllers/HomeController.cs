@@ -31,13 +31,14 @@ namespace CIS420CON.Controllers
 
         public ActionResult Alerts()
         {
-            DateTime start = DateTime.Now,
+            //
+            DateTime start = DateTime.Today,
                 end = start.AddDays(7);
 
             var viewModel = new StudentIndexViewModel()
             {
                 //select only events within 7 days of current date
-                AlertList = _db.Events.Where(d => d.StartDate > start)
+                AlertList = _db.Events.Where(d => d.StartDate > start && d.StartDate < end)
             };
             return View(viewModel);
         }

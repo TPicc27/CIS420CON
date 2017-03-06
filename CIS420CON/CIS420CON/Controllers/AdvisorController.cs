@@ -50,7 +50,7 @@ namespace CIS420CON.Controllers
 
         public ActionResult Alerts()
         {
-            DateTime start = DateTime.Now, 
+            DateTime start = DateTime.Today, 
                 end = start.AddDays(7);
 
             var viewModel = new AdvisorIndexViewModel()
@@ -58,14 +58,11 @@ namespace CIS420CON.Controllers
                 //select only non compiant students from db
                 NCStudentsList = db.Students.Where(d => d.Is_Compliant == false),
                 //select only events within 7 days of current date
-                AlertList = db.Events.Where(d => d.StartDate>start)              
+                AlertList = db.Events.Where(d => d.StartDate>start && d.StartDate <end)              
                 
         };
         return View(viewModel);
-    }
-            
-            
-        
+    }     
 
         // GET: Advisor/Details/5
         public ActionResult Details(int? id)
