@@ -13,6 +13,7 @@ namespace CIS420CON.Controllers
     public class HomeController : Controller
     {
         public ApplicationDbContext _db = new ApplicationDbContext();
+        [Authorize]
         public ActionResult Index()
         {
             return View();
