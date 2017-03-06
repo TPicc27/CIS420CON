@@ -16,5 +16,6 @@ namespace CIS420CON.Models.ViewModels
         public string Email { get; set; }
         [Display(Name = "Enrollment Date")]
         public DateTime EnrollmentDate { get; set; }
+        public IEnumerable<Event> AlertList { get; set; }
     }
 }

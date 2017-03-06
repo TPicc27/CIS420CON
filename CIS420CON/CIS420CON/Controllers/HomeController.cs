@@ -31,11 +31,23 @@ namespace CIS420CON.Controllers
 
         public ActionResult Alerts()
         {
-            return View();
+            var viewModel = new StudentIndexViewModel()
+            {
+                //need a way to filter events, currently displays first 999
+                AlertList = _db.Events.Take(999)
+            };
+            return View(viewModel);
         }
 
         public ActionResult Advising()
         {
+            //currently just hard coded data, need to displ
+            ViewBag.FullName = "Joe Black";
+            ViewBag.Title = "Undergraduate Advisor";
+            ViewBag.Description = "Advises M-Z Lower Division Traditional Students";
+            ViewBag.WhereWhen = "HSC Advising Center, Room102A, Mon, Thurs, Fri from 8:30am - 3:30pm";
+            ViewBag.Email = "noemail@gmail.com";
+
             return View();
         }
 
@@ -60,14 +72,18 @@ namespace CIS420CON.Controllers
             return PartialView("StudentsPartial", students);
         }
 
-
-
-
         public PartialViewResult GetTodosList()
         {
             var todos = _db.Events.Take(2);
 
             return PartialView("TodosPartial", todos);
+        }
+
+        public PartialViewResult GetAlertList()
+        {
+            var alert = _db.Events.Take(2);
+            //need to filter events somehow (upcoming events this week)
+            return PartialView("_AlertsPartial", alert);
         }
 
     }
