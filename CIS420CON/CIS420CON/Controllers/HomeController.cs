@@ -30,17 +30,20 @@ namespace CIS420CON.Controllers
 
         public ActionResult Alerts()
         {
+            DateTime start = DateTime.Now,
+                end = start.AddDays(7);
+
             var viewModel = new StudentIndexViewModel()
             {
-                //need a way to filter events, currently displays first 999
-                AlertList = _db.Events.Take(999)
+                //select only events within 7 days of current date
+                AlertList = _db.Events.Where(d => d.StartDate > start)
             };
             return View(viewModel);
         }
 
         public ActionResult Advising()
         {
-            //currently just hard coded data, need to displ
+            //currently just hard coded data, need to link student id to corresponding advisor id somehow
             ViewBag.FullName = "Joe Black";
             ViewBag.Title = "Undergraduate Advisor";
             ViewBag.Description = "Advises M-Z Lower Division Traditional Students";
