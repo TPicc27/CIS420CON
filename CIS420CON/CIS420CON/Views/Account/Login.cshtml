@@ -4,7 +4,8 @@
     ViewBag.Title = "Log in";
 }
 
-<h2>@ViewBag.Title.</h2>
+
+
 <div class="row">
     <div class="col-md-8">
         <section id="loginForm">
@@ -50,6 +51,7 @@
                     </p>*@
             }
         </section>
+
     </div>
     <div class="col-md-4">
         <section id="socialLoginForm">
@@ -57,6 +59,124 @@
         </section>
     </div>
 </div>
+
+ <!-- Carousel -->
+<div class="carousel fade-carousel slide" data-ride="carousel" data-interval="4000" id="bs-carousel">
+    <!-- Overlay -->
+    <div class="overlay">
+    </div>
+    <!-- Indicators -->
+    <ol class="carousel-indicators">
+        <li data-target="#bs-carousel" data-slide-to="0" class="active"></li>
+        <li data-target="#bs-carousel" data-slide-to="1"></li>
+        <li data-target="#bs-carousel" data-slide-to="2"></li>
+        <li data-target="#bs-carousel" data-slide-to="3"></li>
+        <li data-target="#bs-carousel" data-slide-to="4"></li>
+    </ol>
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner">
+        <div class="item slides active">
+            <div class="slide-1"></div>
+            <div class="hero">
+            </div>
+        </div>
+        <div class="item slides">
+            <div class="slide-2"></div>
+            <div class="hero">
+            </div>
+        </div>
+        <div class="item slides">
+            <div class="slide-3"></div>
+        </div>
+        <div class="item slides">
+            <div class="slide-4"></div>
+            <div class="hero">
+            </div>
+        </div>
+        <div class="item slides">
+            <div class="slide-5"></div>
+            <div class="hero">
+            </div>
+        </div>
+    </div>
+</div>
+<!--footer-->
+<footer class="footer1">
+    <div class="container">
+        <div class="row">
+            <!-- row -->
+            <div class="col-lg-2 col-md-3">
+                <!-- widgets column left -->
+                <ul class="list-unstyled clear-margins">
+                    <!-- widgets -->
+                    <li class="widget-container widget_nav_menu">
+                        <h1 style="color: #898989; font-size: 20px; font-weight: 300; line-height: 1;
+                         position: relative; text-transform: uppercase; font-family: 'Fjalla One', sans-serif;
+                         margin-top: 0; margin-right: 0; margin-bottom: 25px; margin-left: 0; padding-left: 28px;">
+                            Directions
+                        </h1>
+                        <!-- widgets list -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3133.329353668357!2d-85.75114148465826!3d38.24866677757718!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x886972b70ea30f9b%3A0x6e2ae03015f84c2a!2sSchool+of+Nursing!5e0!3m2!1sen!2sus!4v1488068603421" width="400" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+                </ul>
+            </div><!-- widgets column left end -->
+            <div style="position: relative; right: -800px;">
+                <!-- widgets column left -->
+                <ul class="list-unstyled clear-margins">
+                    <!-- widgets -->
+                    <li class="widget-container widget_recent_news">
+                        <!-- widgets list -->
+
+                        <h1 style="color: #898989; font-size: 20px; font-weight: 300; line-height: 1;
+                         position: relative; text-transform: uppercase; font-family: 'Fjalla One', sans-serif;
+                         margin-top: 0; margin-right: 0; margin-bottom: 25px; margin-left: 0;padding-left: 28px;">
+                            Contact Detail
+                        </h1>
+
+                        <div class="footerp">
+
+                            <p>
+                                <b>Email:</b> <a class="email" href="mailto:" karen.rose@louisville.edu" style="color: rgb(255, 0, 0)">
+                                    karen.rose@louisville.edu
+                                </a>
+                            </p>
+                            <p><b>School Number:</b> 1-877-81-NURSE</p>
+                            <p><b>Cell Number:</b> 502-852-5825</p>
+
+                        </div>
+
+                        @*<div class="social-icons">
+
+                            <ul class="nomargin">*@
+
+                        @*<a href="https://www.facebook.com/bootsnipp"><i class="fa fa-facebook-square fa-3x social-fb" id="social"></i></a>
+                            <a href="https://twitter.com/bootsnipp"><i class="fa fa-twitter-square fa-3x social-tw" id="social"></i></a>
+                            <a href="https://plus.google.com/+Bootsnipp-page"><i class="fa fa-google-plus-square fa-3x social-gp" id="social"></i></a>
+                            <a href="mailto:bootsnipp@gmail.com"><i class="fa fa-envelope-square fa-3x social-em" id="social"></i></a>*@
+
+                </ul>
+            </div>
+        </div>
+    </div>
+</footer>
+<!--header-->
+<div class="footer-bottom">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="copyright">
+                    © 2017 Nothing But Net
+
+                </div>
+            </div>
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+                <div class="design">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 
 @section Scripts {
     @Scripts.Render("~/bundles/jqueryval")

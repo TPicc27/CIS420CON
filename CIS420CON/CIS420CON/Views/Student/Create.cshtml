@@ -4,8 +4,15 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
 
+<div class="row">
+
+<div class="panel panel-danger">
+    <div class="panel-heading">
+        <h2 style="color:#FFFFFF;text-align:center;">Create</h2>
+        </div>
+    <div class="panel-body" style="text-align: center;">
+        <center>
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
@@ -125,6 +132,11 @@
         </div>
     </div>
 }
+            </center>
+    </div>
+    </div>
+    </div>
+
 
 <div>
     @Html.ActionLink("Back to List", "Index")
